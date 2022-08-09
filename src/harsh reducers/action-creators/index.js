@@ -7,7 +7,7 @@ export const loginuser =(input)=>{
     // debugger;
     return (dispatch)=>{
         const{name, email,password}=input;
-        fetch("http://localhost:5000/api/auth/createuser", {
+        fetch("https://nameless-bastion-00469.herokuapp.com/api/auth/createuser", {
          method: "POST",
          headers: {
            "content-type": "application/json"
