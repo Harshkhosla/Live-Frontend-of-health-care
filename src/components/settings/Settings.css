@@ -1,0 +1,38 @@
+.settings label{
+    font-size: .8rem;
+    color: #888888;
+}
+.settings input{
+    background-color: #DDDDDD1A;
+}
+.settings input::placeholder{
+    color: #DDDDDD;
+}
+.Modal-close-btn{
+    border: none;
+    color: #2155CD;
+    font-size: .7rem;
+    font-weight: 400;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+.Modal-close-btn:hover{
+    border-color: #ffffff;
+}
+.modal-company-id{
+    color: #36AE7C;
+}
+.edit-btn{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}

@@ -1,0 +1,28 @@
+.header{
+    font-weight: 700;
+}
+.headertext{
+    font-weight: 400;
+}
+
+.form label {
+	font-weight: 600;
+}
+
+.updateBtn {
+	position: absolute;
+	top: 1.3rem;
+	right: 2rem;
+	color: #2155cd;
+	font-size: 0.8rem;
+	font-weight: 600;
+}
+.updateBtn:hover {
+	cursor: pointer;
+}
+
+.sign-out-btn span:hover{
+cursor: pointer;
+}
+
+/* check */
