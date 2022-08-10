@@ -138,7 +138,7 @@ const Documents = () => {
                     return (
                         <div  className="d-flex flex-column m-3">
 
-                            <img alt="not fount" width={"300px"} height={"250px"} className="border border-dark" src={`https://nameless-bastion-00469.herokuapp.com/uploads/A-sample-prescription.png${harsh.image}`} onClick={() => ShowImage(index)} data-bs-toggle="modal" data-bs-target="#exampleModal" />
+                            <img alt="not fount" width={"300px"} height={"250px"} className="border border-dark" src={`https://nameless-bastion-00469.herokuapp.com/${harsh.image}`} onClick={() => ShowImage(index)} data-bs-toggle="modal" data-bs-target="#exampleModal" />
                             {/* <span>{selectedImage?.lastModifiedDate}</span> */}
                             
                             <button className="btn btn-sm btn-danger my-2"  type ="button" onClick={() => DeletNote(index)}>Delete</button>
