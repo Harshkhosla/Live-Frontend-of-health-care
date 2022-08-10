@@ -54,7 +54,7 @@ export const signItUp=(navigate,field)=>{
         const { email, password} = field;
         
 
-         fetch("http://localhost:5000/api/auth/login", {
+         fetch("https://nameless-bastion-00469.herokuapp.com/api/auth/login", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -118,7 +118,7 @@ export const DoctorData=(feilds)=>{
     const { title, discription} = feilds;
         // debugger;
 
-    fetch("http://localhost:5000/api/notes/addnote", {
+    fetch("https://nameless-bastion-00469.herokuapp.com/api/notes/addnote", {
      method: "POST",
      headers: {
        "content-type": "application/json",
@@ -152,7 +152,7 @@ export const DoctorData=(feilds)=>{
 export const notesData=()=>{
   // debugger
   return(dispatch)=>{
-    fetch("http://localhost:5000/api/notes/fetchallnotes", {
+    fetch("https://nameless-bastion-00469.herokuapp.com/api/notes/fetchallnotes", {
 
             method: "GET",
             headers: {
@@ -181,7 +181,7 @@ export const SearchDatas=(feilds)=>{
   // debugger;
   return(dispatch)=>{
     const { schema} = feilds;
-    fetch("http://localhost:5000/api/health/healthId", {
+    fetch("https://nameless-bastion-00469.herokuapp.com/api/health/healthId", {
 
       
       // debugger;
@@ -234,7 +234,7 @@ export const editData=(feilds)=>{
   return(dispatch)=>{
     const {title,discription,_id}=feilds;
     // debugger;
-    fetch(`http://localhost:5000/api/notes/updatenote/${(_id).replaceAll('"', "")}`, {
+    fetch(`https://nameless-bastion-00469.herokuapp.com/api/notes/updatenote/${(_id).replaceAll('"', "")}`, {
    method: "PUT",
    headers: {
      "content-type": "application/json",
@@ -264,7 +264,7 @@ export const deletData =(feilds)=>{
   // debugger  
   return(dispatch)=>{
     const{_id}=feilds
-    fetch(`http://localhost:5000/api/notes/deletenote/${_id}`, {
+    fetch(`https://nameless-bastion-00469.herokuapp.com/api/notes/deletenote/${_id}`, {
    method: "DELETE",
    headers: {
      "content-type": "application/json",
@@ -294,7 +294,7 @@ export const SaveImage=(feilds)=>{
     const{image}=feilds
 
     console.log(image);
-    fetch(`http://localhost:5000/api/Image/saveimage`, {
+    fetch(`https://nameless-bastion-00469.herokuapp.com/api/Image/saveimage`, {
       method: "POST",   
       headers: {
         
@@ -318,7 +318,7 @@ export const SaveImage=(feilds)=>{
 
 export const imagesData=()=>{
   return(dispatch)=>{
-    fetch("http://localhost:5000/api/Image/getallimages", {
+    fetch("https://nameless-bastion-00469.herokuapp.com/api/Image/getallimages", {
 
       method: "GET",
       headers: {
@@ -348,7 +348,7 @@ export const deletImages=(feilds)=>{
   return(dispatch)=>{
     debugger;
     const{_id}=feilds
-    fetch(`http://localhost:5000/api/Image/deleteImage/${_id}`, {
+    fetch(`https://nameless-bastion-00469.herokuapp.com/api/Image/deleteImage/${_id}`, {
    method: "DELETE",
    headers: {
      "content-type": "application/json",
@@ -380,7 +380,7 @@ export const pdfData=(feilds)=>{
     const{image}=feilds
 
     console.log(image);
-    fetch(`http://localhost:5000/api/pdf/savePdf`, {
+    fetch(`https://nameless-bastion-00469.herokuapp.com/api/pdf/savePdf`, {
       method: "POST",   
       headers: {
         
@@ -405,7 +405,7 @@ export const PdfDataGet=(feilds)=>{
   const {schema}=feilds;
   // debugger
   return(dispatch)=>{
-    fetch(`http://localhost:5000/api/pdf/getallPdf/${schema}`, {
+    fetch(`https://nameless-bastion-00469.herokuapp.com/api/pdf/getallPdf/${schema}`, {
 
       method: "GET",
    
