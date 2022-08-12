@@ -27,7 +27,7 @@ const PdfViewer = () => {
        <div className='pdf-container'>
 
        <Document
-        file={{}}
+        file={`https://nameless-bastion-00469.herokuapp.com/${Searchdatapdf}}`}
        
         ></Document>
         {/* {viewPdf&&<><Worker workerUrl="https://unpkg.com/pdfjs-dist@2.14.305/build/pdf.worker.min.js">

@@ -62,6 +62,7 @@ const Documents = () => {
         }
        
         imagesDatacall()
+        // setUpdated([...updated,dats])
     },[updated])
 
 
