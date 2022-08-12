@@ -6,6 +6,7 @@ import { AiOutlineFilePdf } from 'react-icons/ai';
 
 import { Link ,useLocation} from 'react-router-dom'
 import { PdfDataGet } from '../../harsh reducers/action-creators'// Import the styles
+import PdfViewer from './PdfViewer';
 // import '@react-pdf-viewer/core/lib/styles/index.css';
 // import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout'; // install this library
 // import '@react-pdf-viewer/default-layout/lib/styles/index.css';
@@ -93,6 +94,7 @@ const Scearch = () => {
       
     <Link to='/pdfgenrator'>
      < AiOutlineFilePdf size={250}  />
+     {/* <PdfViewer data={data}/> */}
     </Link>
           {/* <button className="btn btn-sm btn-danger my-2"  type ="button" onClick={() => DeletNote(index)}>Delete</button> */}
         </div>)

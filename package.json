@@ -21,6 +21,7 @@
     "file-saver": "^2.0.5",
     "html-pdf": "^3.0.1",
     "nodemon": "^2.0.19",
+    "pdf-viewer-reactjs": "^2.2.3",
     "pdfjs-dist": "^2.14.305",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
