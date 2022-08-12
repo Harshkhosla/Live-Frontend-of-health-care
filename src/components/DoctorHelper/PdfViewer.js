@@ -15,7 +15,7 @@ const PdfViewer = (props) => {
        
       <PDFViewer
             document={{
-                url: `https://nameless-bastion-00469.herokuapp.com/datas/Harsh_Khosla_Hired_Certificate.pdf`,
+                url: 'https://nameless-bastion-00469.herokuapp.com/datas/Harsh_Khosla_Hired_Certificate.pdf',
             }}/>
     </div>
   )
