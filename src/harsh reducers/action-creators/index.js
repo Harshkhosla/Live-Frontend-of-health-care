@@ -118,7 +118,7 @@ export const DoctorData=(feilds)=>{
     const { title, discription} = feilds;
         // debugger;
 
-    fetch("https://nameless-bastion-00469.herokuapp.com/api/notes/addnote", {
+    fetch("https://medilocker.herokuapp.com/api/notes/addnote", {
      method: "POST",
      headers: {
        "content-type": "application/json",
@@ -152,7 +152,7 @@ export const DoctorData=(feilds)=>{
 export const notesData=()=>{
   // debugger
   return(dispatch)=>{
-    fetch("https://nameless-bastion-00469.herokuapp.com/api/notes/fetchallnotes", {
+    fetch("https://medilocker.herokuapp.com/api/notes/fetchallnotes", {
 
             method: "GET",
             headers: {
@@ -181,7 +181,7 @@ export const SearchDatas=(feilds)=>{
   // debugger;
   return(dispatch)=>{
     const { schema} = feilds;
-    fetch("https://nameless-bastion-00469.herokuapp.com/api/health/healthId", {
+    fetch("https://medilocker.herokuapp.com/api/health/healthId", {
 
       
       // debugger;
@@ -234,7 +234,7 @@ export const editData=(feilds)=>{
   return(dispatch)=>{
     const {title,discription,_id}=feilds;
     // debugger;
-    fetch(`https://nameless-bastion-00469.herokuapp.com/api/notes/updatenote/${(_id).replaceAll('"', "")}`, {
+    fetch(`https://medilocker.herokuapp.com/api/notes/updatenote/${(_id).replaceAll('"', "")}`, {
    method: "PUT",
    headers: {
      "content-type": "application/json",
@@ -264,7 +264,7 @@ export const deletData =(feilds)=>{
   // debugger  
   return(dispatch)=>{
     const{_id}=feilds
-    fetch(`https://nameless-bastion-00469.herokuapp.com/api/notes/deletenote/${_id}`, {
+    fetch(`https://medilocker.herokuapp.com/api/notes/deletenote/${_id}`, {
    method: "DELETE",
    headers: {
      "content-type": "application/json",
@@ -294,7 +294,7 @@ export const SaveImage=(feilds)=>{
     const{image}=feilds
 
     console.log(image);
-    fetch(`https://nameless-bastion-00469.herokuapp.com/api/Image/saveimage`, {
+    fetch(`https://medilocker.herokuapp.com/api/Image/saveimage`, {
       method: "POST",   
       headers: {
         
@@ -318,7 +318,7 @@ export const SaveImage=(feilds)=>{
 
 export const imagesData=()=>{
   return(dispatch)=>{
-    fetch("https://nameless-bastion-00469.herokuapp.com/api/Image/getallimages", {
+    fetch("https://medilocker.herokuapp.com/api/Image/getallimages", {
 
       method: "GET",
       headers: {
@@ -348,7 +348,7 @@ export const deletImages=(feilds)=>{
   return(dispatch)=>{
     debugger;
     const{_id}=feilds
-    fetch(`https://nameless-bastion-00469.herokuapp.com/api/Image/deleteImage/${_id}`, {
+    fetch(`https://medilocker.herokuapp.com/api/Image/deleteImage/${_id}`, {
    method: "DELETE",
    headers: {
      "content-type": "application/json",
@@ -380,7 +380,7 @@ export const pdfData=(feilds)=>{
     const{image}=feilds
 
     console.log(image);
-    fetch(`https://nameless-bastion-00469.herokuapp.com/api/pdf/savePdf`, {
+    fetch(`https://medilocker.herokuapp.com/api/pdf/savePdf`, {
       method: "POST",   
       headers: {
         
@@ -405,7 +405,7 @@ export const PdfDataGet=(feilds)=>{
   const {schema}=feilds;
   // debugger
   return(dispatch)=>{
-    fetch(`https://nameless-bastion-00469.herokuapp.com/api/pdf/getallPdf/${schema}`, {
+    fetch(`https://medilocker.herokuapp.com/api/pdf/getallPdf/${schema}`, {
 
       method: "GET",
    
