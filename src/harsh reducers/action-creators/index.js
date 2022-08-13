@@ -7,7 +7,7 @@ export const loginuser =(input)=>{
     // debugger;
     return (dispatch)=>{
         const{name, email,password}=input;
-        fetch("https://medilocker.herokuapp.com//api/auth/createuser", {
+        fetch("https://medilocker.herokuapp.com/api/auth/createuser", {
          method: "POST",
          headers: {
            "content-type": "application/json"
@@ -54,7 +54,7 @@ export const signItUp=(navigate,field)=>{
         const { email, password} = field;
         
 
-         fetch("https://medilocker.herokuapp.com//api/auth/login", {
+         fetch("https://medilocker.herokuapp.com/api/auth/login", {
           method: "POST",
           headers: {
             "content-type": "application/json",
