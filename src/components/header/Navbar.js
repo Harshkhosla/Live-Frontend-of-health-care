@@ -57,7 +57,7 @@ const Navbar = () => {
   )
 
   const loGin =(
-    <nav class="navbar navbar-expand-lg Navbar navbar-dark">
+    <nav class="navbar navbar-expand-lg Navbar navbar-dark" >
     <div class="container-fluid">
       <a class="navbar-brand" ><Fa500Px fontSize={"40px"}/></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

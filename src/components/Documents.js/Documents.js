@@ -9,7 +9,7 @@ import { deletImages } from '../../harsh reducers/action-creators'
 import { useDispatch, useSelector } from "react-redux";
 const Documents = () => {
     const dispatch= useDispatch();    
-    const imagesAllData=useSelector(state=>state.amount.imagesData)    
+    const imagesAllData=useSelector(state=>state?.amount?.imagesData)    
     const[mapImages,setMapImages]=useState([]); 
     const [dats, setDats] = useState([]);
     const[img,setImg]=useState('');

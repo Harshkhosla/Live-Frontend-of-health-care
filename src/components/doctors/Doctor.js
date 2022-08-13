@@ -6,6 +6,7 @@ import { DoctorData } from '../../harsh reducers/action-creators';
 import {editData} from '../../harsh reducers/action-creators'
 import { deletData } from '../../harsh reducers/action-creators'
 import dateFormat from 'dateformat';
+import "./doctor.css"
 const today = new Date();
 
 const Doctor = () => {
@@ -86,11 +87,11 @@ const Doctor = () => {
   <div className="container">
     <div className="formDiv d-flex flex-column col-md-8 offset-md-2 mt-4">
      <div className='text-center'>
-      <h4>
+      <h5 className='style' >
         <b>
       Report key: {noteData?.[0]?.schema}
         </b>
-        </h4> 
+        </h5> 
       </div>
       <form>
           <div class="mb-3">
