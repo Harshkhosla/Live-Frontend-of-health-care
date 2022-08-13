@@ -43,7 +43,7 @@ const Scearch = () => {
       <div className="container">
 
         <div class="form-outline form-white mb-4">
-          <h1>Enter your report key here </h1>
+          <h1 style={{fontSize:"40px"}}>Enter your report key here </h1>
           <input type="email" id="typeEmailX" class="form-control form-control-lg" value={signup.schema} name='schema' onChange={signUpChange} />
           <button type="button" class="btn btn-secondary" onClick={searchdata}>Secondary</button>
         </div>

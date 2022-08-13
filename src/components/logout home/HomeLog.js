@@ -36,7 +36,7 @@ const HomeLog = () => {
 
 
           {/* <div className="section-3"> */}
-          <div className="container d-flex flex-column text-center text-light my-3" >
+          <div className=" d-flex flex-column text-center text-light my-3" >
             <h2>    
             <ParallaxLayer speed={1}  style={{backgroundImage:`url(${Doctor})`,
         backgroundSize:"cover"  ,backgroundColor:`#A020F0` }}>       
