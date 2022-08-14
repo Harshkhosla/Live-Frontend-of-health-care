@@ -49,7 +49,7 @@ const logindata=(amount)=>{
 }
 export const signItUp=(navigate,field)=>{
   
-    
+    debugger;
     return  (dispatch)=>{
         const { email, password} = field;
         
@@ -423,6 +423,63 @@ const sendPdf=(amount)=>{
   // debugger;
   return{
     type:'SavingImages',
+    payload:amount
+  }
+}
+export const UserData=(feilds)=>{
+  debugger;
+  return(dispatch)=>{
+    const {name,PhoneNo,addressLine1,addressLine2,adharNo,city,email,postalCode,state}=feilds;
+    fetch(`https://medilocker.herokuapp.com/api/information/information`, {
+      method: "POST",   
+      headers: {
+        "content-type": "application/json",
+        'Authorization': localStorage.getItem(`Authorization`).replaceAll('"', '')
+    },
+    body: JSON.stringify(
+      {
+        name,email,PhoneNo,postalCode
+      })
+    })
+      .then((response) => response.json())      
+      .then((response) => {  
+        console.log(response); 
+        toast.success(response?.sucess)           
+        if (!response?.sucess) {
+          throw Error(response.error)
+        }
+      })
+      .catch((err) => {       
+   
+      })
+
+  }
+}
+export const UserInformationData=()=>{
+  debugger
+  return(dispatch)=>{
+    fetch(`https://medilocker.herokuapp.com/api/information/fetchallData`, {
+
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        'Authorization': localStorage.getItem(`Authorization`).replaceAll('"', '')
+    },
+   
+  })
+      .then(response => response.json())
+      .then(response => {
+        console.log();
+        dispatch(SenduserInformation(response))
+      })
+      .catch(error => {
+      });
+  }
+} 
+const SenduserInformation=(amount)=>{
+  // debugger;
+  return{
+    type:'SavingUserInformation',
     payload:amount
   }
 }

@@ -4,7 +4,8 @@ const initialState={
     searchData:[],
     deletedData:[],
     imagesData:[],
-    pdfData:[]
+    pdfData:[],
+    UserData:[]
 }
 
 const reducer =(state=initialState,action)=>{
@@ -32,6 +33,9 @@ const reducer =(state=initialState,action)=>{
     }else if(action.type==="SavingImages"){
         // debugger;
         return{...state,pdfData:action.payload.PDF}
+    }else if(action.type==="SavingUserInformation"){
+        // debugger;
+        return{...state,UserData:action.payload}
     }
     return state
 }

@@ -1,23 +1,28 @@
 import React, { useEffect } from 'react'
 import { useContext } from 'react';
 import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import {UserData} from '../../harsh reducers/action-creators'
+import {UserInformationData} from '../../harsh reducers/action-creators'
 // import documentContext from '../context/document/documentContext';
 import './Settings.css'
 
 function Setting() {
-    // const Context =useContext(documentContext);
-    // const{Settings,settingsData,SettingsDatas}=Context;
-
     const navigate = useNavigate
-    const [submit, setSubmit] = useState(false);
+    const UserDataInfo=useSelector(state=>state?.amount?.UserData[0])
+    console.log(UserDataInfo);
+    const dispatch=useDispatch()
+    const [submit, setSubmit] = useState([]);
+    console.log(submit);
 
     const [fields, setfields] = useState({
+        name:'',
         organisationDesc: '',
         organisationName: '',
-        panNum: '',
-        supEmail: '',
-        phoneNumber: '',
+        adharNo: '',
+        email: '',
+        PhoneNo: '',
         webSite: '',
         addressLine1: '',
         addressLine2: '',
@@ -33,17 +38,17 @@ function Setting() {
 
 
 const savedData =()=>{
-
+    dispatch(UserData(fields))
 }
     useEffect(() => {
         const datasave = async () => {
-            // SettingsDatas()
+            dispatch(UserInformationData()) 
         }
         datasave();
     }, [])
-    // useEffect(()=>{
-    //   setInput(settingsData?.data?.[0]?.[0])  
-    // },[settingsData])
+    useEffect(()=>{
+        setSubmit(UserDataInfo)
+    },[UserDataInfo])
 //   console.log(input,"jyvhgcvh");
 
     const [formError, setFormError] = useState({})
@@ -73,19 +78,19 @@ const savedData =()=>{
                         <form className="row g-3" onSubmit={handleSubmit}>
                             <div className="col-md-6 ">
                                 <label htmlFor="validationCustom01" className='mb-0'>NAME</label>
-                                <input type="text" className="form-control py-3" id="validationCustom01" placeholder="Harsh" onChange={onChange} value="Harsh" />
+                                <input type="text" className="form-control py-3" id="validationCustom01"  name="name" placeholder="Harsh" onChange={onChange} value={fields.name}/>
                             </div>
                             <div className="col-md-6">
                                 <label htmlFor="text" className="form-label mb-0">AADHAR NUMBER</label>
-                                <input type="number" className="form-control py-3" id="inputNumber" placeholder='624930606283549' onChange={onChange} name="panNumber" value={"624930606283549"} />
+                                <input type="number" className="form-control py-3" id="inputNumber" placeholder='624930606283549' onChange={onChange} name="adharNo" value={fields.adharNo} />
                             </div>
                             <div className="col-md-6  mt-1">
                                 <label htmlFor="inputEmail4" className="form-label mb-0">EMAIL</label>
-                                <input type="email" className="form-control py-3" id="inputEmail4" placeholder='Harshkhosla9945@gmail.com' onChange={onChange} name="supEmail" value={'Harshkhosla9945@gmail.com'} />
+                                <input type="email" className="form-control py-3" id="inputEmail4" placeholder='Harshkhosla9945@gmail.com' onChange={onChange} name="email" value={fields.email} />
                             </div>
                             <div className="col-md-6 mt-1">
                                 <label htmlFor="text" className="form-label mb-0 ">PHONE NUMBER</label>
-                                <input type="text" className="form-control py-3" id="inputNumber" placeholder='0141 302019' onChange={onChange} name="phoneNumber" value={'0141 302019'} />
+                                <input type="text" className="form-control py-3" id="inputNumber" placeholder='0141 302019' onChange={onChange} name="PhoneNo" value={fields.PhoneNo} />
                             </div>
                             <div className="col-md-6 mt-1">
                                 <label htmlFor="text" className="form-label mb-0 ">GENDER</label>
@@ -122,20 +127,20 @@ const savedData =()=>{
                             </h6>
                             <div className="col-md-6 ">
                                 <label htmlFor="inputAddress" className='mb-0'>ADDRESS LINE 1</label>
-                                <input type="text" className="form-control py-3" id="inputAddress" placeholder="560-561 Symphony Pride, Kings Rd" onChange={onChange} name="addressLine1" value={"560-561 Symphony Pride, Kings Rd"} />
+                                <input type="text" className="form-control py-3" id="inputAddress" placeholder="560-561 Symphony Pride, Kings Rd" onChange={onChange} name="addressLine1" value={fields.addressLine1} />
                             </div>
                             <div className="col-md-6">
                                 <label htmlFor="inputAddress" className='mb-0'>ADDRESS LINE 2</label>
-                                <input type="text" className="form-control py-3" id="inputNumber" placeholder='Nirman Nagar' onChange={onChange} name="addressLine2" value={'Nirman Nagar'}/>
+                                <input type="text" className="form-control py-3" id="inputNumber" placeholder='Nirman Nagar' onChange={onChange} name="addressLine2" value={fields.addressLine2}/>
                             </div>
                             <div className="col-md-6  mt-1">
                                 <label htmlFor="inputCity" className="form-label mb-0">City</label>
-                                <input type="text" className="form-control py-3" id="inputCity" placeholder={input?.city?.length===0?'Eg:-Jaipur':input?.city} onChange={onChange} name="city" value={"Jaipur"} />
+                                <input type="text" className="form-control py-3" id="inputCity" placeholder={input?.city?.length===0?'Eg:-Jaipur':input?.city} onChange={onChange} name="city" value={fields.city} />
 
                             </div>
                             <div className="col-md-6 mt-1">
                                 <label htmlFor="inputState" className="form-label mb-0 ">STATE</label>
-                                <input type="text" className="form-control py-3" id="inputState" placeholder={input?.state?.length===0?'Eg:-RAJASTHAN':input?.state} onChange={onChange} name="state" value={"Rajasthan"}/>
+                                <input type="text" className="form-control py-3" id="inputState" placeholder={input?.state?.length===0?'Eg:-RAJASTHAN':input?.state} onChange={onChange} name="state" value={fields.state}/>
                             </div>
                             <div className="col-md-6 mt-1">
                                 <label htmlFor="inputZipCode" className="form-label mb-0 ">ZIP CODE</label>
