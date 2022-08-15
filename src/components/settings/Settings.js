@@ -5,11 +5,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {UserData} from '../../harsh reducers/action-creators'
 import {UserInformationData} from '../../harsh reducers/action-creators'
+import { Gettingdata } from "../../harsh reducers/action-creators";
 // import documentContext from '../context/document/documentContext';
 import './Settings.css'
 
 function Setting() {
     const navigate = useNavigate
+    
+    const UserName=useSelector(state=>state?.amount?.UserAllInformation)
     const UserDataInfo=useSelector(state=>state?.amount?.UserData[0])
     console.log(UserDataInfo);
     const dispatch=useDispatch()
@@ -17,6 +20,7 @@ function Setting() {
     console.log(submit);
 
     const [fields, setfields] = useState({
+        _id:'',
         name:'',
         organisationDesc: '',
         organisationName: '',
@@ -57,6 +61,15 @@ const savedData =()=>{
         e.preventDefault(fields);
         // Settings(fields);
     }
+    useEffect(() => {
+        const datasave = async () => {
+          dispatch(Gettingdata())
+        }
+        datasave();
+      },[])
+      useEffect(() => {
+        setfields(UserName)
+      }, [UserName])
     const [state, setState] = useState()
     const onChange = (setmodal) => {
         const value = setmodal.target.value;
@@ -182,7 +195,7 @@ const savedData =()=>{
                                 </input>
                             </div> */}
                             <div className='d-flex flex-row-reverse'>
-                                <button className="btn btn-primary mt-4 col-sm-2 " onClick={savedData} data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="submit">Save</button>
+                                <button className="btn btn-primary mt-4 col-sm-2 " onClick={savedData} type="submit">Save</button>
 
                             </div>
                         </form>

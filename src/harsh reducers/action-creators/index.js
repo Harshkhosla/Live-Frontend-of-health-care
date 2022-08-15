@@ -429,16 +429,16 @@ const sendPdf=(amount)=>{
 export const UserData=(feilds)=>{
   debugger;
   return(dispatch)=>{
-    const {name,PhoneNo,addressLine1,addressLine2,adharNo,city,email,postalCode,state}=feilds;
-    fetch(`https://medilocker.herokuapp.com/api/information/information`, {
-      method: "POST",   
+    const {name,PhoneNo,addressLine1,addressLine2,adharNo,city,email,postalCode,state,_id}=feilds;
+    fetch(`https://medilocker.herokuapp.com/api/auth/UserInformation/${_id}`, {
+      method: "PUT",   
       headers: {
         "content-type": "application/json",
         'Authorization': localStorage.getItem(`Authorization`).replaceAll('"', '')
     },
     body: JSON.stringify(
       {
-        name,email,PhoneNo,postalCode
+        PhoneNo,addressLine1,addressLine2,adharNo,city,postalCode,state
       })
     })
       .then((response) => response.json())      
@@ -456,7 +456,7 @@ export const UserData=(feilds)=>{
   }
 }
 export const UserInformationData=()=>{
-  debugger
+  // debugger
   return(dispatch)=>{
     fetch(`https://medilocker.herokuapp.com/api/information/fetchallData`, {
 
