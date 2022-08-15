@@ -1,12 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import { FaSignOutAlt } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 import { LogOut } from "../../harsh reducers/action-creators";
+import { Gettingdata } from "../../harsh reducers/action-creators";
+
+import { UpdatName } from "../../harsh reducers/action-creators";
 import "./SignOut.css"
 const SignOut = () => {
     // const Context = useContext(documentContext);
     // const{Account,UpdateName,accounts,Mysettings}=Context;
+    const UserName=useSelector(state=>state?.amount?.UserAllInformation)
+    console.log(UserName);
   
     const[details,setDetails]=useState([]);
     const[update,setUpdate]=useState('');
@@ -19,28 +24,37 @@ const SignOut = () => {
       newPassword:'',
       cPassword:''
     })
+    const [updatename,setUpdateName]=useState({
+      name:'',
+      _id:''
+    })
+    // const [comingname,setComingName]=useState('')
+    console.log(updatename);
   
     const onChange=(e)=>{
       const{name,value}=e.target;
       setAccount({...account,[name]:value})
       setUpdate({...account.fullnam,[name]:value})
     }
-  
+    const onChangee=(e)=>{
+      const{name,value}=e.target;
+      setUpdateName({...updatename,[name]:value})
+  }
   
     const updateName = async () => {
-    //   UpdateName(update?.fullname)
+      dispatch(UpdatName(updatename))
     };
   
-    // useEffect(() => {
-    //   const datasave = async () => {
-    //     Mysettings()
-    //   }
-    //   datasave();
-    // },[])
+    useEffect(() => {
+      const datasave = async () => {
+        dispatch(Gettingdata())
+      }
+      datasave();
+    },[])
   
-    // useEffect(() => {
-    //   setDetails(accounts)
-    // }, [accounts])
+    useEffect(() => {
+      setUpdateName(UserName)
+    }, [UserName])
   
   
     const handleSubmit = async (e) => {
@@ -89,12 +103,10 @@ const SignOut = () => {
                 <div className="col-sm-7" style={{ position: "relative" }}>
                   <input
                     type="text"
-                    className="form-control py-3"
-                    id="inputName"
-                    // placeholder={details?.data?.[0]?.[0]?.name}
-                    // name="fullname"
-                    value={"Harsh"}
-                    // onChange={onChange}
+                    className="form-control py-3"                    
+                    name="name"
+                    value={updatename.name}
+                    onChange={onChangee}
 
                   />
                   <span className="updateBtn"

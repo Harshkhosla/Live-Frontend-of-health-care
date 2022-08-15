@@ -483,3 +483,57 @@ const SenduserInformation=(amount)=>{
     payload:amount
   }
 }
+export const Gettingdata=()=>{
+  // debugger
+  return(dispatch)=>{
+    fetch(`https://medilocker.herokuapp.com/api/auth/getuser`, {
+
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        'Authorization': localStorage.getItem(`Authorization`).replaceAll('"', '')
+    },
+   
+  })
+      .then(response => response.json())
+      .then(response => {
+        console.log();
+        dispatch(UpdatingName(response))
+      })
+      .catch(error => {
+      });
+  }
+}
+const UpdatingName=(amount)=>{
+  // debugger;
+  return{
+    type:'Updatingnames',
+    payload:amount
+  }
+}
+export const UpdatName=(feilds)=>{
+  const{name,_id}=feilds
+  debugger
+  return(dispatch)=>{
+    fetch(`https://medilocker.herokuapp.com/api/auth/updatename/${_id}`, {
+
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+        'Authorization': localStorage.getItem(`Authorization`).replaceAll('"', '')
+    }, 
+    body: JSON.stringify(
+      {
+        name
+      })
+   
+  })
+      .then(response => response.json())
+      .then(response => {
+        console.log();
+        dispatch(UpdatingName(response))
+      })
+      .catch(error => {
+      });
+  }
+}

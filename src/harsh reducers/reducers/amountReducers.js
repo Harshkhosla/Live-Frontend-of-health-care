@@ -5,7 +5,8 @@ const initialState={
     deletedData:[],
     imagesData:[],
     pdfData:[],
-    UserData:[]
+    UserData:[],
+    UserAllInformation:[]
 }
 
 const reducer =(state=initialState,action)=>{
@@ -36,6 +37,9 @@ const reducer =(state=initialState,action)=>{
     }else if(action.type==="SavingUserInformation"){
         // debugger;
         return{...state,UserData:action.payload}
+    }else if(action.type==="Updatingnames"){
+        // debugger;
+        return{...state,UserAllInformation:action.payload}
     }
     return state
 }
