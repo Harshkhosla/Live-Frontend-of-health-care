@@ -6,8 +6,8 @@ import "react-toastify/dist/ReactToastify.css";
 export const loginuser =(input)=>{
     // debugger;
     return (dispatch)=>{
-        const{name, email,password}=input;
-        fetch("https://medilocker.herokuapp.com/api/auth/createuser", {
+        const{name, email, password}=input;
+        fetch("https://backend-production-e1c2.up.railway.app/api/auth/createuser", {
          method: "POST",
          headers: {
            "content-type": "application/json"
@@ -48,13 +48,11 @@ const logindata=(amount)=>{
     }
 }
 export const signItUp=(navigate,field)=>{
-  
-    debugger;
     return  (dispatch)=>{
         const { email, password} = field;
         
 
-         fetch("https://medilocker.herokuapp.com/api/auth/login", {
+         fetch("https://backend-production-e1c2.up.railway.app/api/auth/login", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -118,7 +116,7 @@ export const DoctorData=(feilds)=>{
     const { title, discription} = feilds;
         // debugger;
 
-    fetch("https://medilocker.herokuapp.com/api/notes/addnote", {
+    fetch("https://backend-production-e1c2.up.railway.app/api/notes/addnote", {
      method: "POST",
      headers: {
        "content-type": "application/json",
@@ -133,7 +131,7 @@ export const DoctorData=(feilds)=>{
      .then((response) => response.json())
      
      .then((response) => {
-      //  console.log(response.sucess)
+      //  console.log(response.sucess) 
        toast.success(response?.sucess)      
 
        if (!response?.sucess) {
@@ -152,7 +150,7 @@ export const DoctorData=(feilds)=>{
 export const notesData=()=>{
   // debugger
   return(dispatch)=>{
-    fetch("https://medilocker.herokuapp.com/api/notes/fetchallnotes", {
+    fetch("https://backend-production-e1c2.up.railway.app/api/notes/fetchallnotes", {
 
             method: "GET",
             headers: {
@@ -181,7 +179,7 @@ export const SearchDatas=(feilds)=>{
   // debugger;
   return(dispatch)=>{
     const { schema} = feilds;
-    fetch("https://medilocker.herokuapp.com/api/health/healthId", {
+    fetch("https://backend-production-e1c2.up.railway.app/api/health/healthId", {
 
       
       // debugger;
@@ -234,7 +232,7 @@ export const editData=(feilds)=>{
   return(dispatch)=>{
     const {title,discription,_id}=feilds;
     // debugger;
-    fetch(`https://medilocker.herokuapp.com/api/notes/updatenote/${(_id).replaceAll('"', "")}`, {
+    fetch(`https://backend-production-e1c2.up.railway.app/api/notes/updatenote/${(_id).replaceAll('"', "")}`, {
    method: "PUT",
    headers: {
      "content-type": "application/json",
@@ -264,7 +262,7 @@ export const deletData =(feilds)=>{
   // debugger  
   return(dispatch)=>{
     const{_id}=feilds
-    fetch(`https://medilocker.herokuapp.com/api/notes/deletenote/${_id}`, {
+    fetch(`https://backend-production-e1c2.up.railway.app/api/notes/deletenote/${_id}`, {
    method: "DELETE",
    headers: {
      "content-type": "application/json",
@@ -294,7 +292,7 @@ export const SaveImage=(feilds)=>{
     const{image}=feilds
 
     console.log(image);
-    fetch(`https://medilocker.herokuapp.com/api/Image/saveimage`, {
+    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/saveimage`, {
       method: "POST",   
       headers: {
         
@@ -318,7 +316,7 @@ export const SaveImage=(feilds)=>{
 
 export const imagesData=()=>{
   return(dispatch)=>{
-    fetch("https://medilocker.herokuapp.com/api/Image/getallimages", {
+    fetch("https://backend-production-e1c2.up.railway.app/api/Image/getallimages", {
 
       method: "GET",
       headers: {
@@ -348,7 +346,7 @@ export const deletImages=(feilds)=>{
   return(dispatch)=>{
     debugger;
     const{_id}=feilds
-    fetch(`https://medilocker.herokuapp.com/api/Image/deleteImage/${_id}`, {
+    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/deleteImage/${_id}`, {
    method: "DELETE",
    headers: {
      "content-type": "application/json",
@@ -380,7 +378,7 @@ export const pdfData=(feilds)=>{
     const{image}=feilds
 
     console.log(image);
-    fetch(`https://medilocker.herokuapp.com/api/pdf/savePdf`, {
+    fetch(`https://backend-production-e1c2.up.railway.app/api/pdf/savePdf`, {
       method: "POST",   
       headers: {
         
@@ -405,7 +403,7 @@ export const PdfDataGet=(feilds)=>{
   const {schema}=feilds;
   // debugger
   return(dispatch)=>{
-    fetch(`https://medilocker.herokuapp.com/api/pdf/getallPdf/${schema}`, {
+    fetch(`https://backend-production-e1c2.up.railway.app/api/pdf/getallPdf/${schema}`, {
 
       method: "GET",
    
@@ -430,7 +428,7 @@ export const UserData=(feilds)=>{
   debugger;
   return(dispatch)=>{
     const {name,PhoneNo,addressLine1,addressLine2,adharNo,city,email,postalCode,state,_id}=feilds;
-    fetch(`https://medilocker.herokuapp.com/api/auth/UserInformation/${_id}`, {
+    fetch(`https://backend-production-e1c2.up.railway.app/api/auth/UserInformation/${_id}`, {
       method: "PUT",   
       headers: {
         "content-type": "application/json",
@@ -458,7 +456,7 @@ export const UserData=(feilds)=>{
 export const UserInformationData=()=>{
   // debugger
   return(dispatch)=>{
-    fetch(`https://medilocker.herokuapp.com/api/information/fetchallData`, {
+    fetch(`https://backend-production-e1c2.up.railway.app/api/information/fetchallData`, {
 
       method: "GET",
       headers: {
@@ -486,7 +484,7 @@ const SenduserInformation=(amount)=>{
 export const Gettingdata=()=>{
   // debugger
   return(dispatch)=>{
-    fetch(`https://medilocker.herokuapp.com/api/auth/getuser`, {
+    fetch(`https://backend-production-e1c2.up.railway.app/api/auth/getuser`, {
 
       method: "POST",
       headers: {
@@ -515,7 +513,7 @@ export const UpdatName=(feilds)=>{
   const{name,_id}=feilds
   debugger
   return(dispatch)=>{
-    fetch(`https://medilocker.herokuapp.com/api/auth/updatename/${_id}`, {
+    fetch(`https://backend-production-e1c2.up.railway.app/api/auth/updatename/${_id}`, {
 
       method: "PUT",
       headers: {

@@ -23,14 +23,12 @@ const reducer =(state=initialState,action)=>{
         const sample =state.notesData.filter((data,index)=>data._id!==action.payload.note._id)
         console.log(sample);
         return{...state,notesData:sample}
-    }else if(action.type==="imagesdata"){  
-          
+    }else if(action.type==="imagesdata"){            
         return{...state,imagesData:action.payload.images}
     }else if(action.type==="deletingImage"){ 
         const images =state.imagesData.filter((data,index)=>data._id!==action.payload.images._id)
         console.log(images);        
-        return{...state,imagesData:images}
-        
+        return{...state,imagesData:images}        
     }else if(action.type==="SavingImages"){
         // debugger;
         return{...state,pdfData:action.payload.PDF}

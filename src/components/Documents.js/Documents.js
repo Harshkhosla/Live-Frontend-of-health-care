@@ -48,7 +48,7 @@ const Documents = () => {
         console.log("dwvw");
          const imagesDataDeleting=imagesAllData?.filter((data, index) =>index === id)
          
-         debugger;
+        //  debugger;
          dispatch(deletImages(imagesDataDeleting?.[0]))
          // debugger;
          // dispatch(imagesData())
@@ -139,7 +139,7 @@ const Documents = () => {
                     return (
                         <div  className="d-flex flex-column m-3">
 
-                            <img alt="not fount" width={"300px"} height={"250px"} className="border border-dark" src={`https://medilocker.herokuapp.com/${harsh?.image}`} onClick={() => ShowImage(index)} data-bs-toggle="modal" data-bs-target="#exampleModal" />
+                            <img alt="not fount" width={"300px"} height={"250px"} className="border border-dark" src={`https://backend-production-e1c2.up.railway.app/${harsh?.image}`} onClick={() => ShowImage(index)} data-bs-toggle="modal" data-bs-target="#exampleModal" />
                             {/* <span>{selectedImage?.lastModifiedDate}</span> */}
                             
                             <button className="btn btn-sm btn-danger my-2"  type ="button" onClick={() => DeletNote(index)}>Delete</button>

@@ -72,7 +72,7 @@ const Scearch = () => {
         return(
         <div className="d-flex flex-column m-3">
 
-          <img alt="not fount" width={"300px"} height={"250px"} className="border border-dark" src={`https://medilocker.herokuapp.com/${data?.image}`} data-bs-toggle="modal" data-bs-target="#exampleModal" />
+          <img alt="not fount" width={"300px"} height={"250px"} className="border border-dark" src={`https://backend-production-e1c2.up.railway.app/${data?.image}`} data-bs-toggle="modal" data-bs-target="#exampleModal" />
          
 
           {/* <button className="btn btn-sm btn-danger my-2"  type ="button" onClick={() => DeletNote(index)}>Delete</button> */}
