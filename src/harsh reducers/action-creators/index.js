@@ -50,8 +50,8 @@ const logindata=(amount)=>{
 export const signItUp=(navigate,field)=>{
     return  (dispatch)=>{
         const { email, password} = field;
+      
         
-
          fetch("https://backend-production-e1c2.up.railway.app/api/auth/login", {
           method: "POST",
           headers: {
@@ -344,7 +344,7 @@ const datasImage =(amount)=>{
 }
 export const deletImages=(feilds)=>{
   return(dispatch)=>{
-    debugger;
+    // debugger;
     const{_id}=feilds
     fetch(`https://backend-production-e1c2.up.railway.app/api/Image/deleteImage/${_id}`, {
    method: "DELETE",
@@ -425,7 +425,7 @@ const sendPdf=(amount)=>{
   }
 }
 export const UserData=(feilds)=>{
-  debugger;
+  // debugger;
   return(dispatch)=>{
     const {name,PhoneNo,addressLine1,addressLine2,adharNo,city,email,postalCode,state,_id}=feilds;
     fetch(`https://backend-production-e1c2.up.railway.app/api/auth/UserInformation/${_id}`, {
