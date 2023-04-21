@@ -7,7 +7,7 @@ export const loginuser =(input)=>{
     // debugger;
     return (dispatch)=>{
         const{name, email, password}=input;
-        fetch("https://backend-production-e1c2.up.railway.app/api/auth/createuser", {
+        fetch(`https://${process.env.STATUS}/api/auth/createuser`, {
          method: "POST",
          headers: {
            "content-type": "application/json"
@@ -86,7 +86,6 @@ export const signItUp=(navigate,field)=>{
             // setError(err.message);
             // toast.error(err?.message);
             
-    
           });
 
     }
