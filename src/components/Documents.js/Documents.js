@@ -19,7 +19,6 @@ const Documents = () => {
 
 
 
-
     
     const ShowImage = (id) => {
         console.log(id);
@@ -30,14 +29,15 @@ const Documents = () => {
             }
         })
     }
-
-
-
-
-
+    
+    
+    
+    
+    
     const dataSending=()=>{
         
         
+        console.log(dataSend,"harshhheheeheheh");
         dispatch(SaveImage(dataSend)) 
         setUpdated([...updated,dats])
         

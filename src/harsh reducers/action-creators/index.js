@@ -285,33 +285,33 @@ const deleteddata =(amount)=>{
   }
 }
 
-export const SaveImage=(feilds)=>{
-  // debugger;
-  return(dispatch)=>{
-    const{image}=feilds
-
-    console.log(image);
+export const SaveImage = (fields) => {
+  return (dispatch) => {
+    // const formData = new FormData();
+    // formData.append('image', fields.image);
+    
+//  debugger;
     fetch(`https://backend-production-e1c2.up.railway.app/api/Image/saveimage`, {
-      method: "POST",   
+      method: "POST",
       headers: {
-        
-        "Authorization": localStorage.getItem(`Authorization`).replaceAll('"', ""),
+        "Authorization": localStorage.getItem('Authorization').replaceAll('"', ""),
       },
-      body: feilds
+      body: fields
     })
-      .then((response) => response.json())      
-      .then((response) => {  
-        console.log(response); 
-        toast.success(response?.sucess)           
-        if (!response?.sucess) {
-          throw Error(response.error)
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+        toast.success(response?.success);
+        if (!response?.success) {
+          throw Error(response.error);
         }
       })
-      .catch((err) => {       
-   
-      })
-  }
-}
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+};
+
 
 
 export const imagesData=()=>{
@@ -766,7 +766,9 @@ const imagesDeleted5=(amount)=>{
 
 
 
-export const SaveVideo2 = (file) => {
+
+
+export const SaveVideo = (file) => {
   const chunkSize = 5 * 1024 * 1024; // 5MB chunk size (adjust as needed)
   const totalChunks = Math.ceil(file.size / chunkSize);
 
@@ -786,6 +788,7 @@ export const SaveVideo2 = (file) => {
         .then((response) => response.json())
         .then((response) => {
           console.log(`Chunk ${chunkIndex + 1} uploaded.`, response);
+          // dispatch(datasVideo(response));
           if (chunkIndex + 1 < totalChunks) {
             const nextStart = end;
             const nextEnd = Math.min(nextStart + chunkSize, file.size);
@@ -804,6 +807,856 @@ export const SaveVideo2 = (file) => {
     uploadChunk(0, chunkSize, 0);
   };
 };
+
+export const videoData=()=>{
+  return(dispatch)=>{
+    fetch(`https://backend-production-e1c2.up.railway.app/api/video/getallvideo`, {
+  
+      method: "GET",
+      headers: {
+          "content-type": "application/json",
+          'Authorization': localStorage.getItem(`Authorization`).replaceAll('"', '')
+      },
+  })
+      .then(response => response.json())
+      .then(response => {
+        dispatch(datasVideo(response))
+          // setSettingsData(response);/
+      })
+      .catch(error => {
+          // console.log(error, "joih");
+      });
+  }
+} 
+
+
+
+const datasVideo =(amount)=>{
+  // debugger;
+  return{
+    type:'videodata',
+    payload:amount
+  }
+}
+
+export const deletVideo=(feilds)=>{
+  return(dispatch)=>{
+    // debugger;
+    const{_id}=feilds
+    fetch(`https://backend-production-e1c2.up.railway.app/api/video/deleteVideo/${_id}`, {
+   method: "DELETE",
+   headers: {
+     "content-type": "application/json",
+     "Authorization": localStorage.getItem(`Authorization`).replaceAll('"', ""),
+   },
+ })
+   .then((response) => response.json())
+   
+   .then((response) => {
+    console.log(response);
+    dispatch(videoDeleted(response))
+   })
+   .catch((err) => {
+   })
+  }
+
+}
+const videoDeleted=(amount)=>{
+  // debugger
+  return{
+    type:'deletingvideo',
+    payload:amount
+  }
+}
+
+
+
+
+
+
+
+
+
+
+export const SaveVideo2 = (file) => {
+  const chunkSize = 5 * 1024 * 1024; // 5MB chunk size (adjust as needed)
+  const totalChunks = Math.ceil(file.size / chunkSize);
+
+  return (dispatch) => {
+    const uploadChunk = (start, end, chunkIndex) => {
+      const chunk = file.slice(start, end);
+      const formData = new FormData();
+      formData.append("video", chunk);
+
+      fetch(`https://backend-production-e1c2.up.railway.app/api/video/savevideo2`, {
+        method: "POST",
+        headers: {
+          "Authorization": localStorage.getItem("Authorization").replaceAll('"', ""),
+        },
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          console.log(`Chunk ${chunkIndex + 1} uploaded.`, response);
+          // dispatch(datasVideo(response));
+          if (chunkIndex + 1 < totalChunks) {
+            const nextStart = end;
+            const nextEnd = Math.min(nextStart + chunkSize, file.size);
+            const nextChunkIndex = chunkIndex + 1;
+            uploadChunk(nextStart, nextEnd, nextChunkIndex);
+          } else {
+            console.log("All chunks uploaded successfully.");
+            toast.success(response?.success);
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    };
+
+    uploadChunk(0, chunkSize, 0);
+  };
+};
+
+export const videoData2=()=>{
+  return(dispatch)=>{
+    fetch(`https://backend-production-e1c2.up.railway.app/api/video/getallvideo2`, {
+  
+      method: "GET",
+      headers: {
+          "content-type": "application/json",
+          'Authorization': localStorage.getItem(`Authorization`).replaceAll('"', '')
+      },
+  })
+      .then(response => response.json())
+      .then(response => {
+        dispatch(datasVideo2(response))
+          // setSettingsData(response);/
+      })
+      .catch(error => {
+          // console.log(error, "joih");
+      });
+  }
+} 
+
+
+
+const datasVideo2 =(amount)=>{
+  // debugger;
+  return{
+    type:'videodata2',
+    payload:amount
+  }
+}
+
+export const deletVideo2=(feilds)=>{
+  return(dispatch)=>{
+    // debugger;
+    const{_id}=feilds
+    fetch(`https://backend-production-e1c2.up.railway.app/api/video/deleteVideo2/${_id}`, {
+   method: "DELETE",
+   headers: {
+     "content-type": "application/json",
+     "Authorization": localStorage.getItem(`Authorization`).replaceAll('"', ""),
+   },
+ })
+   .then((response) => response.json())
+   
+   .then((response) => {
+    console.log(response);
+    dispatch(videoDeleted2(response))
+   })
+   .catch((err) => {
+   })
+  }
+
+}
+const videoDeleted2=(amount)=>{
+  // debugger
+  return{
+    type:'deletingvideo2',
+    payload:amount
+  }
+}
+
+
+
+
+
+
+
+
+export const SaveVideo3 = (file) => {
+  const chunkSize = 5 * 1024 * 1024; // 5MB chunk size (adjust as needed)
+  const totalChunks = Math.ceil(file.size / chunkSize);
+
+  return (dispatch) => {
+    const uploadChunk = (start, end, chunkIndex) => {
+      const chunk = file.slice(start, end);
+      const formData = new FormData();
+      formData.append("video", chunk);
+
+      fetch(`https://backend-production-e1c2.up.railway.app/api/video/savevideo3`, {
+        method: "POST",
+        headers: {
+          "Authorization": localStorage.getItem("Authorization").replaceAll('"', ""),
+        },
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          console.log(`Chunk ${chunkIndex + 1} uploaded.`, response);
+          // dispatch(datasVideo(response));
+          if (chunkIndex + 1 < totalChunks) {
+            const nextStart = end;
+            const nextEnd = Math.min(nextStart + chunkSize, file.size);
+            const nextChunkIndex = chunkIndex + 1;
+            uploadChunk(nextStart, nextEnd, nextChunkIndex);
+          } else {
+            console.log("All chunks uploaded successfully.");
+            toast.success(response?.success);
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    };
+
+    uploadChunk(0, chunkSize, 0);
+  };
+};
+
+export const videoData3=()=>{
+  return(dispatch)=>{
+    fetch(`https://backend-production-e1c2.up.railway.app/api/video/getallvideo3`, {
+  
+      method: "GET",
+      headers: {
+          "content-type": "application/json",
+          'Authorization': localStorage.getItem(`Authorization`).replaceAll('"', '')
+      },
+  })
+      .then(response => response.json())
+      .then(response => {
+        dispatch(datasVideo3(response))
+          // setSettingsData(response);/
+      })
+      .catch(error => {
+          // console.log(error, "joih");
+      });
+  }
+} 
+
+
+
+const datasVideo3 =(amount)=>{
+  // debugger;
+  return{
+    type:'videodata3',
+    payload:amount
+  }
+}
+
+export const deletVideo3=(feilds)=>{
+  return(dispatch)=>{
+    // debugger;
+    const{_id}=feilds
+    fetch(`https://backend-production-e1c2.up.railway.app/api/video/deleteVideo3/${_id}`, {
+   method: "DELETE",
+   headers: {
+     "content-type": "application/json",
+     "Authorization": localStorage.getItem(`Authorization`).replaceAll('"', ""),
+   },
+ })
+   .then((response) => response.json())
+   
+   .then((response) => {
+    console.log(response);
+    dispatch(videoDeleted3(response))
+   })
+   .catch((err) => {
+   })
+  }
+
+}
+const videoDeleted3=(amount)=>{
+  // debugger
+  return{
+    type:'deletingvideo3',
+    payload:amount
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+export const SaveVideo4 = (file) => {
+  const chunkSize = 5 * 1024 * 1024; // 5MB chunk size (adjust as needed)
+  const totalChunks = Math.ceil(file.size / chunkSize);
+
+  return (dispatch) => {
+    const uploadChunk = (start, end, chunkIndex) => {
+      const chunk = file.slice(start, end);
+      const formData = new FormData();
+      formData.append("video", chunk);
+
+      fetch(`https://backend-production-e1c2.up.railway.app/api/video/savevideo4`, {
+        method: "POST",
+        headers: {
+          "Authorization": localStorage.getItem("Authorization").replaceAll('"', ""),
+        },
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          console.log(`Chunk ${chunkIndex + 1} uploaded.`, response);
+          // dispatch(datasVideo(response));
+          if (chunkIndex + 1 < totalChunks) {
+            const nextStart = end;
+            const nextEnd = Math.min(nextStart + chunkSize, file.size);
+            const nextChunkIndex = chunkIndex + 1;
+            uploadChunk(nextStart, nextEnd, nextChunkIndex);
+          } else {
+            console.log("All chunks uploaded successfully.");
+            toast.success(response?.success);
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    };
+
+    uploadChunk(0, chunkSize, 0);
+  };
+};
+
+export const videoData4=()=>{
+  return(dispatch)=>{
+    fetch(`https://backend-production-e1c2.up.railway.app/api/video/getallvideo4`, {
+  
+      method: "GET",
+      headers: {
+          "content-type": "application/json",
+          'Authorization': localStorage.getItem(`Authorization`).replaceAll('"', '')
+      },
+  })
+      .then(response => response.json())
+      .then(response => {
+        dispatch(datasVideo4(response))
+          // setSettingsData(response);/
+      })
+      .catch(error => {
+          // console.log(error, "joih");
+      });
+  }
+} 
+
+
+
+const datasVideo4 =(amount)=>{
+  // debugger;
+  return{
+    type:'videodata4',
+    payload:amount
+  }
+}
+
+export const deletVideo4=(feilds)=>{
+  return(dispatch)=>{
+    // debugger;
+    const{_id}=feilds
+    fetch(`https://backend-production-e1c2.up.railway.app/api/video/deleteVideo4/${_id}`, {
+   method: "DELETE",
+   headers: {
+     "content-type": "application/json",
+     "Authorization": localStorage.getItem(`Authorization`).replaceAll('"', ""),
+   },
+ })
+   .then((response) => response.json())
+   
+   .then((response) => {
+    console.log(response);
+    dispatch(videoDeleted4(response))
+   })
+   .catch((err) => {
+   })
+  }
+
+}
+const videoDeleted4=(amount)=>{
+  // debugger
+  return{
+    type:'deletingvideo4',
+    payload:amount
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export const SaveVideo5 = (file) => {
+  const chunkSize = 5 * 1024 * 1024; // 5MB chunk size (adjust as needed)
+  const totalChunks = Math.ceil(file.size / chunkSize);
+
+  return (dispatch) => {
+    const uploadChunk = (start, end, chunkIndex) => {
+      const chunk = file.slice(start, end);
+      const formData = new FormData();
+      formData.append("video", chunk);
+
+      fetch(`https://backend-production-e1c2.up.railway.app/api/video/savevideo5`, {
+        method: "POST",
+        headers: {
+          "Authorization": localStorage.getItem("Authorization").replaceAll('"', ""),
+        },
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          console.log(`Chunk ${chunkIndex + 1} uploaded.`, response);
+          // dispatch(datasVideo(response));
+          if (chunkIndex + 1 < totalChunks) {
+            const nextStart = end;
+            const nextEnd = Math.min(nextStart + chunkSize, file.size);
+            const nextChunkIndex = chunkIndex + 1;
+            uploadChunk(nextStart, nextEnd, nextChunkIndex);
+          } else {
+            console.log("All chunks uploaded successfully.");
+            toast.success(response?.success);
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    };
+
+    uploadChunk(0, chunkSize, 0);
+  };
+};
+
+export const videoData5=()=>{
+  return(dispatch)=>{
+    fetch(`https://backend-production-e1c2.up.railway.app/api/video/getallvideo5`, {
+  
+      method: "GET",
+      headers: {
+          "content-type": "application/json",
+          'Authorization': localStorage.getItem(`Authorization`).replaceAll('"', '')
+      },
+  })
+      .then(response => response.json())
+      .then(response => {
+        dispatch(datasVideo5(response))
+          // setSettingsData(response);/
+      })
+      .catch(error => {
+          // console.log(error, "joih");
+      });
+  }
+} 
+
+
+
+const datasVideo5 =(amount)=>{
+  // debugger;
+  return{
+    type:'videodata5',
+    payload:amount
+  }
+}
+
+export const deletVideo5=(feilds)=>{
+  return(dispatch)=>{
+    // debugger;
+    const{_id}=feilds
+    fetch(`https://backend-production-e1c2.up.railway.app/api/video/deleteVideo5/${_id}`, {
+   method: "DELETE",
+   headers: {
+     "content-type": "application/json",
+     "Authorization": localStorage.getItem(`Authorization`).replaceAll('"', ""),
+   },
+ })
+   .then((response) => response.json())
+   
+   .then((response) => {
+    console.log(response);
+    dispatch(videoDeleted5(response))
+   })
+   .catch((err) => {
+   })
+  }
+
+}
+const videoDeleted5=(amount)=>{
+  // debugger
+  return{
+    type:'deletingvideo5',
+    payload:amount
+  }
+}
+
+
+
+
+
+
+
+
+export const SaveVideo6 = (file) => {
+  const chunkSize = 5 * 1024 * 1024; // 5MB chunk size (adjust as needed)
+  const totalChunks = Math.ceil(file.size / chunkSize);
+
+  return (dispatch) => {
+    const uploadChunk = (start, end, chunkIndex) => {
+      const chunk = file.slice(start, end);
+      const formData = new FormData();
+      formData.append("video", chunk);
+
+      fetch(`https://backend-production-e1c2.up.railway.app/api/video/savevideo6`, {
+        method: "POST",
+        headers: {
+          "Authorization": localStorage.getItem("Authorization").replaceAll('"', ""),
+        },
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          console.log(`Chunk ${chunkIndex + 1} uploaded.`, response);
+          // dispatch(datasVideo(response));
+          if (chunkIndex + 1 < totalChunks) {
+            const nextStart = end;
+            const nextEnd = Math.min(nextStart + chunkSize, file.size);
+            const nextChunkIndex = chunkIndex + 1;
+            uploadChunk(nextStart, nextEnd, nextChunkIndex);
+          } else {
+            console.log("All chunks uploaded successfully.");
+            toast.success(response?.success);
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    };
+
+    uploadChunk(0, chunkSize, 0);
+  };
+};
+
+export const videoData6=()=>{
+  return(dispatch)=>{
+    fetch(`https://backend-production-e1c2.up.railway.app/api/video/getallvideo6`, {
+  
+      method: "GET",
+      headers: {
+          "content-type": "application/json",
+          'Authorization': localStorage.getItem(`Authorization`).replaceAll('"', '')
+      },
+  })
+      .then(response => response.json())
+      .then(response => {
+        dispatch(datasVideo6(response))
+          // setSettingsData(response);/
+      })
+      .catch(error => {
+          // console.log(error, "joih");
+      });
+  }
+} 
+
+
+
+const datasVideo6 =(amount)=>{
+  // debugger;
+  return{
+    type:'videodata6',
+    payload:amount
+  }
+}
+
+export const deletVideo6=(feilds)=>{
+  return(dispatch)=>{
+    // debugger;
+    const{_id}=feilds
+    fetch(`https://backend-production-e1c2.up.railway.app/api/video/deleteVideo6/${_id}`, {
+   method: "DELETE",
+   headers: {
+     "content-type": "application/json",
+     "Authorization": localStorage.getItem(`Authorization`).replaceAll('"', ""),
+   },
+ })
+   .then((response) => response.json())
+   
+   .then((response) => {
+    console.log(response);
+    dispatch(videoDeleted6(response))
+   })
+   .catch((err) => {
+   })
+  }
+
+}
+const videoDeleted6=(amount)=>{
+  // debugger
+  return{
+    type:'deletingvideo6',
+    payload:amount
+  }
+}
+
+
+
+
+
+
+
+
+
+
+export const SaveVideo7 = (file) => {
+  const chunkSize = 5 * 1024 * 1024; // 5MB chunk size (adjust as needed)
+  const totalChunks = Math.ceil(file.size / chunkSize);
+
+  return (dispatch) => {
+    const uploadChunk = (start, end, chunkIndex) => {
+      const chunk = file.slice(start, end);
+      const formData = new FormData();
+      formData.append("video", chunk);
+
+      fetch(`https://backend-production-e1c2.up.railway.app/api/video/savevideo7`, {
+        method: "POST",
+        headers: {
+          "Authorization": localStorage.getItem("Authorization").replaceAll('"', ""),
+        },
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          console.log(`Chunk ${chunkIndex + 1} uploaded.`, response);
+          // dispatch(datasVideo(response));
+          if (chunkIndex + 1 < totalChunks) {
+            const nextStart = end;
+            const nextEnd = Math.min(nextStart + chunkSize, file.size);
+            const nextChunkIndex = chunkIndex + 1;
+            uploadChunk(nextStart, nextEnd, nextChunkIndex);
+          } else {
+            console.log("All chunks uploaded successfully.");
+            toast.success(response?.success);
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    };
+
+    uploadChunk(0, chunkSize, 0);
+  };
+};
+
+export const videoData7=()=>{
+  return(dispatch)=>{
+    fetch(`https://backend-production-e1c2.up.railway.app/api/video/getallvideo7`, {
+  
+      method: "GET",
+      headers: {
+          "content-type": "application/json",
+          'Authorization': localStorage.getItem(`Authorization`).replaceAll('"', '')
+      },
+  })
+      .then(response => response.json())
+      .then(response => {
+        dispatch(datasVideo7(response))
+          // setSettingsData(response);/
+      })
+      .catch(error => {
+          // console.log(error, "joih");
+      });
+  }
+} 
+
+
+
+const datasVideo7 =(amount)=>{
+  // debugger;
+  return{
+    type:'videodata7',
+    payload:amount
+  }
+}
+
+export const deletVideo7=(feilds)=>{
+  return(dispatch)=>{
+    // debugger;
+    const{_id}=feilds
+    fetch(`https://backend-production-e1c2.up.railway.app/api/video/deleteVideo7/${_id}`, {
+   method: "DELETE",
+   headers: {
+     "content-type": "application/json",
+     "Authorization": localStorage.getItem(`Authorization`).replaceAll('"', ""),
+   },
+ })
+   .then((response) => response.json())
+   
+   .then((response) => {
+    console.log(response);
+    dispatch(videoDeleted7(response))
+   })
+   .catch((err) => {
+   })
+  }
+
+}
+const videoDeleted7=(amount)=>{
+  // debugger
+  return{
+    type:'deletingvideo7',
+    payload:amount
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+export const SaveVideo8 = (file) => {
+  const chunkSize = 5 * 1024 * 1024; // 5MB chunk size (adjust as needed)
+  const totalChunks = Math.ceil(file.size / chunkSize);
+
+  return (dispatch) => {
+    const uploadChunk = (start, end, chunkIndex) => {
+      const chunk = file.slice(start, end);
+      const formData = new FormData();
+      formData.append("video", chunk);
+
+      fetch(`https://backend-production-e1c2.up.railway.app/api/video/savevideo8`, {
+        method: "POST",
+        headers: {
+          "Authorization": localStorage.getItem("Authorization").replaceAll('"', ""),
+        },
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          console.log(`Chunk ${chunkIndex + 1} uploaded.`, response);
+          // dispatch(datasVideo(response));
+          if (chunkIndex + 1 < totalChunks) {
+            const nextStart = end;
+            const nextEnd = Math.min(nextStart + chunkSize, file.size);
+            const nextChunkIndex = chunkIndex + 1;
+            uploadChunk(nextStart, nextEnd, nextChunkIndex);
+          } else {
+            console.log("All chunks uploaded successfully.");
+            toast.success(response?.success);
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    };
+
+    uploadChunk(0, chunkSize, 0);
+  };
+};
+
+export const videoData8=()=>{
+  return(dispatch)=>{
+    fetch(`https://backend-production-e1c2.up.railway.app/api/video/getallvideo8`, {
+  
+      method: "GET",
+      headers: {
+          "content-type": "application/json",
+          'Authorization': localStorage.getItem(`Authorization`).replaceAll('"', '')
+      },
+  })
+      .then(response => response.json())
+      .then(response => {
+        dispatch(datasVideo8(response))
+          // setSettingsData(response);/
+      })
+      .catch(error => {
+          // console.log(error, "joih");
+      });
+  }
+} 
+
+
+
+const datasVideo8 =(amount)=>{
+  // debugger;
+  return{
+    type:'videodata8',
+    payload:amount
+  }
+}
+
+export const deletVideo8=(feilds)=>{
+  return(dispatch)=>{
+    // debugger;
+    const{_id}=feilds
+    fetch(`https://backend-production-e1c2.up.railway.app/api/video/deleteVideo8/${_id}`, {
+   method: "DELETE",
+   headers: {
+     "content-type": "application/json",
+     "Authorization": localStorage.getItem(`Authorization`).replaceAll('"', ""),
+   },
+ })
+   .then((response) => response.json())
+   
+   .then((response) => {
+    console.log(response);
+    dispatch(videoDeleted8(response))
+   })
+   .catch((err) => {
+   })
+  }
+
+}
+const videoDeleted8=(amount)=>{
+  // debugger
+  return{
+    type:'deletingvideo8',
+    payload:amount
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

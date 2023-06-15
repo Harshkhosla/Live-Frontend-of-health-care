@@ -11,14 +11,12 @@ import Settings from './components/settings/Settings';
 import SingUp from './components/sign-up/SingUp';
 import CreatAcoount from './components/Create-account/CreatAcoount';
 import Documents from './components/Documents.js/Documents';
-
 import Navbar from './components/header/Navbar';
 import Doctor from './components/doctors/Doctor';
 import Pdf from './components/pdf/Pdf';
 import SignOut from './components/Sign-out/SignOut';
 import Scearch from './components/DoctorHelper/Scearch';
 import HomeLog from './components/logout home/HomeLog';
-
 import { ToastContainer } from 'react-toastify';
 import Report from './components/Report/Report';
 import PdfViewer from './components/DoctorHelper/PdfViewer';
@@ -27,7 +25,13 @@ import Video from './components/Documents.js/Video';
 import Documents2 from './components/Documents.js/Documents2';
 import Documents3 from './components/Documents.js/Documents3';
 import Documents4 from './components/Documents.js/Documents4';
-// import { ToastContainer } from 'react-toastify/dist/components';
+import Video2 from './components/Documents.js/Video2';
+import Video3 from './components/Documents.js/Video3';
+import Video4 from './components/Documents.js/Video4';
+import Video5 from './components/Documents.js/Video5';
+import Video6 from './components/Documents.js/Video6';
+import Video7 from './components/Documents.js/Video7';
+import Video8 from './components/Documents.js/Video8';
 
 function App() {
   return (
@@ -67,6 +71,14 @@ pauseOnHover
         <Route path='/documnets3' element={<Documents3/>}/>
         <Route path='/documnets4' element={<Documents4/>}/>
         <Route path='/video' element={<Video/>}/>
+        <Route path='/video1' element={<Video2/>}/>
+        <Route path='/video2' element={<Video3/>}/>
+        <Route path='/video3' element={<Video4/>}/>
+        <Route path='/video4' element={<Video5/>}/>
+        <Route path='/video5' element={<Video6/>}/>
+        <Route path='/video7' element={<Video7/>}/>
+        <Route path='/video8' element={<Video8/>}/>
+      
         
 
      

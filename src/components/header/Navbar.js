@@ -79,16 +79,31 @@ const Navbar = () => {
             {/* <li><Link class="dropdown-item" href="#">Images4</Link></li> */}
           </ul>
         </li>
-            <Link className={`btn m-2 ms-0 ${location.pathname === "/home" ? "active" : ""
-                  }`} aria-current="page" to="/home">Prescription</Link>
+            {/* <Link className={`btn m-2 ms-0 ${location.pathname === "/home" ? "active" : ""
+                  }`} aria-current="page" to="/home">Prescription</Link> */}
           </li>
           <li class="nav-item">
             <Link className={`btn m-2 ms-0 ${location.pathname === "/documnets1" ? "active" : ""
                   }`} aria-current="page" to="/documnets1">Prescriptionmm</Link>
           </li>
-          <li class="nav-item">
-            <Link className={`btn m-2 ms-0 ${location.pathname === "/video" ? "active" : ""
-                  }`} aria-current="page" to="/video">video</Link>
+          <li class="nav-item"> <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu">
+            <li><Link class="dropdown-item" to="/video">Videos1</Link></li>
+            <li><Link class="dropdown-item" to="/video1">Videos2 </Link></li>
+            <li><Link class="dropdown-item" to="/video2">Videos3</Link></li>
+            <li><Link class="dropdown-item" to="/video3">Videos4</Link></li>
+            <li><Link class="dropdown-item" to="/video4">Videos5</Link></li>
+            <li><Link class="dropdown-item" to="/video5">Videos6</Link></li>
+            <li><Link class="dropdown-item" to="/video7">Videos7</Link></li>
+            <li><Link class="dropdown-item" to="/video8">Videos8</Link></li>
+            {/* <li><Link class="dropdown-item" href="#">Images4</Link></li> */}
+          </ul>
+        </li>
+            {/* <Link className={`btn m-2 ms-0 ${location.pathname === "/video" ? "active" : ""
+                  }`} aria-current="page" to="/video">video</Link> */}
           </li>
           <li class="nav-item">
             <Link className={`btn m-2 ms-0 ${location.pathname === "/profile" ? "active" : ""

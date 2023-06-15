@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 // import "../../"
 // import image from './img.gif.gif'
 import image2 from '../logout home/img3.gif'
-import { videoData } from '../../harsh reducers/action-creators'
-import { SaveVideo } from '../../harsh reducers/action-creators'
-import { deletVideo } from '../../harsh reducers/action-creators'
+import { videoData5 } from '../../harsh reducers/action-creators'
+import { SaveVideo5 } from '../../harsh reducers/action-creators'
+import { deletVideo5 } from '../../harsh reducers/action-creators'
 import { useDispatch, useSelector } from "react-redux";
-const Video = () => {
+const Video5 = () => {
     const dispatch = useDispatch();
-    const imagesAllData = useSelector(state => state?.amount?.videoData)
+    const imagesAllData = useSelector(state => state?.amount?.videoData5)
     // const imagesAllDataa=useSelector(state=>state?.amount?.videoData)   
     console.log(imagesAllData, "hehehhe");
     const [mapImages, setMapImages] = useState([]);
@@ -45,7 +45,7 @@ const Video = () => {
     const dataSending = () => {
 
         console.log(dataSend, "hehhehheh");
-        dispatch(SaveVideo(dataSend))
+        dispatch(SaveVideo5(dataSend))
         setUpdated([...updated, dats])
 
 
@@ -56,7 +56,7 @@ const Video = () => {
         const imagesDataDeleting = imagesAllData?.filter((data, index) => index === id)
 
         //  debugger;
-        dispatch(deletVideo(imagesDataDeleting?.[0]))
+        dispatch(deletVideo5(imagesDataDeleting?.[0]))
         // debugger;
         // dispatch(imagesData())
     }
@@ -65,7 +65,7 @@ const Video = () => {
     useEffect(() => {
 
         const imagesDatacall = async () => {
-            dispatch(videoData())
+            dispatch(videoData5())
         }
 
         imagesDatacall()
@@ -95,7 +95,7 @@ const Video = () => {
 
     return (
         <div >
-            <h1 className="text-center mt-2 mb-5">video 1 </h1>
+            <h1 className="text-center mt-2 mb-5">video 5 </h1>
             <div className="container">
 
                 <div className="row">
@@ -207,4 +207,4 @@ const Video = () => {
     )
 }
 
-export default Video
+export default Video5
