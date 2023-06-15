@@ -313,6 +313,7 @@ export const SaveImage=(feilds)=>{
   }
 }
 
+
 export const imagesData=()=>{
   return(dispatch)=>{
     fetch(`https://backend-production-e1c2.up.railway.app/api/Image/getallimages`, {
@@ -370,6 +371,461 @@ const imagesDeleted=(amount)=>{
     payload:amount
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export const SaveImage2=(feilds)=>{
+  // debugger;
+  return(dispatch)=>{
+    // const{video}=feilds
+
+    // console.log(image);
+    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/saveimagedata`, {
+      method: "POST",   
+      headers: {
+        
+        "Authorization": localStorage.getItem(`Authorization`).replaceAll('"', ""),
+      },
+      body: feilds
+    })
+      .then((response) => response.json())      
+      .then((response) => {  
+        console.log(response); 
+        toast.success(response?.sucess)           
+        if (!response?.sucess) {
+          throw Error(response.error)
+        }
+      })
+      .catch((err) => {       
+   
+      })
+  }
+}
+
+
+export const imagesData2=()=>{
+  return(dispatch)=>{
+    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/getallimagesdata`, {
+
+      method: "GET",
+      headers: {
+          "content-type": "application/json",
+          'Authorization': localStorage.getItem(`Authorization`).replaceAll('"', '')
+      },
+  })
+      .then(response => response.json())
+      .then(response => {
+        dispatch(datasImage2(response))
+          // setSettingsData(response);/
+      })
+      .catch(error => {
+          // console.log(error, "joih");
+      });
+  }
+} 
+
+const datasImage2 =(amount)=>{
+  // debugger;
+  return{
+    type:'imagesdata2',
+    payload:amount
+  }
+}
+export const deletImages2=(feilds)=>{
+  return(dispatch)=>{
+    // debugger;
+    const{_id}=feilds
+    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/deleteImagedata/${_id}`, {
+   method: "DELETE",
+   headers: {
+     "content-type": "application/json",
+     "Authorization": localStorage.getItem(`Authorization`).replaceAll('"', ""),
+   },
+ })
+   .then((response) => response.json())
+   
+   .then((response) => {
+    console.log(response);
+    dispatch(imagesDeleted2(response))
+   })
+   .catch((err) => {
+   })
+  }
+
+}
+const imagesDeleted2=(amount)=>{
+  // debugger
+  return{
+    type:'deletingImage2',
+    payload:amount
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+export const SaveImage3=(feilds)=>{
+  // debugger;
+  return(dispatch)=>{
+    // const{video}=feilds
+
+    // console.log(image);
+    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/saveimagedata2`, {
+      method: "POST",   
+      headers: {
+        
+        "Authorization": localStorage.getItem(`Authorization`).replaceAll('"', ""),
+      },
+      body: feilds
+    })
+      .then((response) => response.json())      
+      .then((response) => {  
+        console.log(response); 
+        toast.success(response?.sucess)           
+        if (!response?.sucess) {
+          throw Error(response.error)
+        }
+      })
+      .catch((err) => {       
+   
+      })
+  }
+}
+
+
+export const imagesData3=()=>{
+  return(dispatch)=>{
+    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/getallimagesdata2`, {
+
+      method: "GET",
+      headers: {
+          "content-type": "application/json",
+          'Authorization': localStorage.getItem(`Authorization`).replaceAll('"', '')
+      },
+  })
+      .then(response => response.json())
+      .then(response => {
+        dispatch(datasImage3(response))
+          // setSettingsData(response);/
+      })
+      .catch(error => {
+          // console.log(error, "joih");
+      });
+  }
+} 
+
+const datasImage3 =(amount)=>{
+  // debugger;
+  return{
+    type:'imagesdata3',
+    payload:amount
+  }
+}
+export const deletImages3=(feilds)=>{
+  return(dispatch)=>{
+    // debugger;
+    const{_id}=feilds
+    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/deleteImagedata2/${_id}`, {
+   method: "DELETE",
+   headers: {
+     "content-type": "application/json",
+     "Authorization": localStorage.getItem(`Authorization`).replaceAll('"', ""),
+   },
+ })
+   .then((response) => response.json())
+   
+   .then((response) => {
+    console.log(response);
+    dispatch(imagesDeleted3(response))
+   })
+   .catch((err) => {
+   })
+  }
+
+}
+const imagesDeleted3=(amount)=>{
+  // debugger
+  return{
+    type:'deletingImage3',
+    payload:amount
+  }
+}
+
+
+
+
+
+
+
+
+export const SaveImage4=(feilds)=>{
+  // debugger;
+  return(dispatch)=>{
+    // const{video}=feilds
+
+    // console.log(image);
+    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/saveimagedata3`, {
+      method: "POST",   
+      headers: {
+        
+        "Authorization": localStorage.getItem(`Authorization`).replaceAll('"', ""),
+      },
+      body: feilds
+    })
+      .then((response) => response.json())      
+      .then((response) => {  
+        console.log(response); 
+        toast.success(response?.sucess)           
+        if (!response?.sucess) {
+          throw Error(response.error)
+        }
+      })
+      .catch((err) => {       
+   
+      })
+  }
+}
+
+
+
+
+
+export const imagesData4=()=>{
+  return(dispatch)=>{
+    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/getallimagesdata3`, {
+
+      method: "GET",
+      headers: {
+          "content-type": "application/json",
+          'Authorization': localStorage.getItem(`Authorization`).replaceAll('"', '')
+      },
+  })
+      .then(response => response.json())
+      .then(response => {
+        dispatch(datasImage4(response))
+          // setSettingsData(response);/
+      })
+      .catch(error => {
+          // console.log(error, "joih");
+      });
+  }
+} 
+
+const datasImage4 =(amount)=>{
+  // debugger;
+  return{
+    type:'imagesdata4',
+    payload:amount
+  }
+}
+export const deletImages4=(feilds)=>{
+  return(dispatch)=>{
+    // debugger;
+    const{_id}=feilds
+    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/deleteImagedata3/${_id}`, {
+   method: "DELETE",
+   headers: {
+     "content-type": "application/json",
+     "Authorization": localStorage.getItem(`Authorization`).replaceAll('"', ""),
+   },
+ })
+   .then((response) => response.json())
+   
+   .then((response) => {
+    console.log(response);
+    dispatch(imagesDeleted4(response))
+   })
+   .catch((err) => {
+   })
+  }
+
+}
+const imagesDeleted4=(amount)=>{
+  // debugger
+  return{
+    type:'deletingImage4',
+    payload:amount
+  }
+}
+
+
+
+
+
+
+
+export const SaveImage5=(feilds)=>{
+  // debugger;
+  return(dispatch)=>{
+    // const{video}=feilds
+
+    // console.log(image);
+    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/saveimagedata4`, {
+      method: "POST",   
+      headers: {
+        
+        "Authorization": localStorage.getItem(`Authorization`).replaceAll('"', ""),
+      },
+      body: feilds
+    })
+      .then((response) => response.json())      
+      .then((response) => {  
+        console.log(response); 
+        toast.success(response?.sucess)           
+        if (!response?.sucess) {
+          throw Error(response.error)
+        }
+      })
+      .catch((err) => {       
+   
+      })
+  }
+}
+
+
+export const imagesData5=()=>{
+  return(dispatch)=>{
+    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/getallimagesdata4`, {
+
+      method: "GET",
+      headers: {
+          "content-type": "application/json",
+          'Authorization': localStorage.getItem(`Authorization`).replaceAll('"', '')
+      },
+  })
+      .then(response => response.json())
+      .then(response => {
+        dispatch(datasImage5(response))
+          // setSettingsData(response);/
+      })
+      .catch(error => {
+          // console.log(error, "joih");
+      });
+  }
+} 
+
+const datasImage5 =(amount)=>{
+  // debugger;
+  return{
+    type:'imagesdata5',
+    payload:amount
+  }
+}
+export const deletImages5=(feilds)=>{
+  return(dispatch)=>{
+    // debugger;
+    const{_id}=feilds
+    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/deleteImagedata4/${_id}`, {
+   method: "DELETE",
+   headers: {
+     "content-type": "application/json",
+     "Authorization": localStorage.getItem(`Authorization`).replaceAll('"', ""),
+   },
+ })
+   .then((response) => response.json())
+   
+   .then((response) => {
+    console.log(response);
+    dispatch(imagesDeleted5(response))
+   })
+   .catch((err) => {
+   })
+  }
+
+}
+const imagesDeleted5=(amount)=>{
+  // debugger
+  return{
+    type:'deletingImage5',
+    payload:amount
+  }
+}
+
+
+
+
+
+
+
+export const SaveVideo2 = (file) => {
+  const chunkSize = 5 * 1024 * 1024; // 5MB chunk size (adjust as needed)
+  const totalChunks = Math.ceil(file.size / chunkSize);
+
+  return (dispatch) => {
+    const uploadChunk = (start, end, chunkIndex) => {
+      const chunk = file.slice(start, end);
+      const formData = new FormData();
+      formData.append("video", chunk);
+
+      fetch(`https://backend-production-e1c2.up.railway.app/api/video/savevideo`, {
+        method: "POST",
+        headers: {
+          "Authorization": localStorage.getItem("Authorization").replaceAll('"', ""),
+        },
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          console.log(`Chunk ${chunkIndex + 1} uploaded.`, response);
+          if (chunkIndex + 1 < totalChunks) {
+            const nextStart = end;
+            const nextEnd = Math.min(nextStart + chunkSize, file.size);
+            const nextChunkIndex = chunkIndex + 1;
+            uploadChunk(nextStart, nextEnd, nextChunkIndex);
+          } else {
+            console.log("All chunks uploaded successfully.");
+            toast.success(response?.success);
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    };
+
+    uploadChunk(0, chunkSize, 0);
+  };
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export const pdfData=(feilds)=>{
   // debugger;

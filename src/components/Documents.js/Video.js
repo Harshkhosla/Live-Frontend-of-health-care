@@ -3,13 +3,14 @@ import React, { useEffect, useState } from "react";
 // import "../../"
 // import image from './img.gif.gif'
 import image2 from '../logout home/img3.gif'
-import { imagesData } from '../../harsh reducers/action-creators'
-import { SaveImage } from '../../harsh reducers/action-creators'
-import { deletImages } from '../../harsh reducers/action-creators'
+import { imagesData2 } from '../../harsh reducers/action-creators'
+import { SaveVideo2 } from '../../harsh reducers/action-creators'
+import { deletImages2 } from '../../harsh reducers/action-creators'
 import { useDispatch, useSelector } from "react-redux";
-const Documents = () => {
+const Video = () => {
     const dispatch= useDispatch();    
-    const imagesAllData=useSelector(state=>state?.amount?.imagesData)    
+    const imagesAllData=useSelector(state=>state?.amount?.imagesData2)   
+    console.log(imagesAllData, "hehehhe"); 
     const[mapImages,setMapImages]=useState([]); 
     const [dats, setDats] = useState([]);
     const[img,setImg]=useState('');
@@ -37,8 +38,8 @@ const Documents = () => {
 
     const dataSending=()=>{
         
-        
-        dispatch(SaveImage(dataSend)) 
+        console.log(dataSend, "hehhehheh");
+        dispatch(SaveVideo2(dataSend)) 
         setUpdated([...updated,dats])
         
         
@@ -49,7 +50,7 @@ const Documents = () => {
          const imagesDataDeleting=imagesAllData?.filter((data, index) =>index === id)
          
         //  debugger;
-         dispatch(deletImages(imagesDataDeleting?.[0]))
+         dispatch(deletImages2(imagesDataDeleting?.[0]))
          // debugger;
          // dispatch(imagesData())
      }
@@ -58,7 +59,7 @@ const Documents = () => {
     useEffect(()=>{
         
         const imagesDatacall=async()=>{
-             dispatch(imagesData())
+             dispatch(imagesData2())
         }
        
         imagesDatacall()
@@ -77,9 +78,18 @@ const Documents = () => {
 
 
 
+        const [selectedVideo, setSelectedVideo] = useState(null);
+      
+        const handleFileChange = (event) => {
+          const file = event.target.files[0];
+          setDataSend(file);
+        };
+      
+
+
     return (
         <div >
-            <h1 className="text-center mt-2 mb-5">Prescription</h1>
+            <h1 className="text-center mt-2 mb-5">video 2 </h1>
             <div className="container">
                 
             <div className="row">
@@ -90,14 +100,14 @@ const Documents = () => {
                     
                 <div className="text-center">
                     <button type="button" onClick={dataSending}>Send Data</button>
-               <input 
+               {/* <input 
                 type="file" style={{margin:"2rem"}}
-                name="image"
+                name="video"
                 
                 onChange={(event) => {
                   event.preventDefault();
 
-                  let selectedImage=event.target.files[0];
+                  let selectedVideo = event.target.files[0];
                     // ----converting to binary ----//
 
                 //   const formDataGenerator = (data) => {
@@ -113,8 +123,8 @@ const Documents = () => {
                 // ------ converting to string -------//
                 setDats('casdvdc')
                 let formDataValue = new FormData();
-                formDataValue.append('image',selectedImage)
-                setDataSend(formDataValue)
+                formDataValue.append('video', selectedVideo);
+                setDataSend(formDataValue);
                 
 
                   
@@ -122,7 +132,19 @@ const Documents = () => {
                         
                     }}
                 
-                />
+                /> */}
+
+
+<h2>Video Input</h2>
+      <input type="file" accept="video/*" onChange={handleFileChange} />
+      {selectedVideo && (
+        <div>
+          <h3>Selected Video:</h3>
+          <video width="320" height="240" controls>
+            <source src={URL.createObjectURL(selectedVideo)} type={selectedVideo.type} />
+          </video>
+        </div>
+      )}
                 </div>
                 </div>
             </div>
@@ -134,7 +156,7 @@ const Documents = () => {
 
                 {/* <br />  */}
                 {mapImages?.map((harsh, index) => {
-                    console.log(harsh.image);
+                    console.log(harsh?.image);
                     // debugger
                     return (
                         <div  className="d-flex flex-column m-3">
@@ -172,4 +194,4 @@ const Documents = () => {
     )
 }
 
-export default Documents
+export default Video

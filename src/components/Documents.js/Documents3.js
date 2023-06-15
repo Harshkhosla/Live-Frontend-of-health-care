@@ -1,15 +1,15 @@
-
 import React, { useEffect, useState } from "react";
 // import "../../"
 // import image from './img.gif.gif'
 import image2 from '../logout home/img3.gif'
-import { imagesData } from '../../harsh reducers/action-creators'
-import { SaveImage } from '../../harsh reducers/action-creators'
-import { deletImages } from '../../harsh reducers/action-creators'
+import { imagesData4 } from '../../harsh reducers/action-creators'
+import { SaveImage4 } from '../../harsh reducers/action-creators'
+import { deletImages4 } from '../../harsh reducers/action-creators'
 import { useDispatch, useSelector } from "react-redux";
-const Documents = () => {
+const Documents3 = () => {
     const dispatch= useDispatch();    
-    const imagesAllData=useSelector(state=>state?.amount?.imagesData)    
+    const imagesAllData=useSelector(state=>state?.amount?.imagesData4)   
+    console.log(imagesAllData, "hehehhe"); 
     const[mapImages,setMapImages]=useState([]); 
     const [dats, setDats] = useState([]);
     const[img,setImg]=useState('');
@@ -31,14 +31,10 @@ const Documents = () => {
         })
     }
 
-
-
-
-
     const dataSending=()=>{
         
         
-        dispatch(SaveImage(dataSend)) 
+        dispatch(SaveImage4(dataSend)) 
         setUpdated([...updated,dats])
         
         
@@ -49,7 +45,7 @@ const Documents = () => {
          const imagesDataDeleting=imagesAllData?.filter((data, index) =>index === id)
          
         //  debugger;
-         dispatch(deletImages(imagesDataDeleting?.[0]))
+         dispatch(deletImages4(imagesDataDeleting?.[0]))
          // debugger;
          // dispatch(imagesData())
      }
@@ -58,7 +54,7 @@ const Documents = () => {
     useEffect(()=>{
         
         const imagesDatacall=async()=>{
-             dispatch(imagesData())
+             dispatch(imagesData4())
         }
        
         imagesDatacall()
@@ -79,7 +75,7 @@ const Documents = () => {
 
     return (
         <div >
-            <h1 className="text-center mt-2 mb-5">Prescription</h1>
+            <h1 className="text-center mt-2 mb-5">Prescription 4 for lakshay</h1>
             <div className="container">
                 
             <div className="row">
@@ -134,7 +130,7 @@ const Documents = () => {
 
                 {/* <br />  */}
                 {mapImages?.map((harsh, index) => {
-                    console.log(harsh.image);
+                    console.log(harsh?.image);
                     // debugger
                     return (
                         <div  className="d-flex flex-column m-3">
@@ -172,4 +168,4 @@ const Documents = () => {
     )
 }
 
-export default Documents
+export default Documents3

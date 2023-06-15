@@ -108,7 +108,7 @@ const Doctor = () => {
     </div>
 <div className="container d-flex flex-wrap align-items-center p-5 ">
     {noteData?.map((harsh,index)=>{
-      // console.log(harsh);
+      console.log(harsh ,"herer is all the data for you");
       // const date=harsh?.Date("2019-04-30T08:59:00.000Z", "mmmm dS, yyyy")
       return(
         <div className="col-md-4 d-flex flex-column my-2">
@@ -117,6 +117,12 @@ const Doctor = () => {
             <div class="card-body">
                 <h5 class="card-title">{harsh?.title}</h5>
                 <p class="card-text">{harsh?.discription}</p>
+                <p class="card-text">{harsh?.contactNo}</p>
+                <p class="card-text">{harsh?.email}</p>
+                <p class="card-text">{harsh?.name}</p>
+                <p class="card-text">{harsh?.setectDate}</p>
+                <p class="card-text">{harsh?.selectHour}</p>
+                <p class="card-text">{harsh?.numberofpeople}</p>
                 {/* <p class="card-text">{harsh?._id}</p> */}
                 <p class="card-text">{harsh?.Date}</p>
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"onClick={()=>edit(index)}>Edit</button>

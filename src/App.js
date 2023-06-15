@@ -22,6 +22,11 @@ import HomeLog from './components/logout home/HomeLog';
 import { ToastContainer } from 'react-toastify';
 import Report from './components/Report/Report';
 import PdfViewer from './components/DoctorHelper/PdfViewer';
+import Documents1 from './components/Documents.js/Documents1';
+import Video from './components/Documents.js/Video';
+import Documents2 from './components/Documents.js/Documents2';
+import Documents3 from './components/Documents.js/Documents3';
+import Documents4 from './components/Documents.js/Documents4';
 // import { ToastContainer } from 'react-toastify/dist/components';
 
 function App() {
@@ -57,6 +62,11 @@ pauseOnHover
         <Route path='/signOut' element={<SignOut/>}/>
         <Route path='/report' element={<Report/>}/>
         <Route path='/pdfgenrator' element={<PdfViewer/>}/>
+        <Route path='/documnets1' element={<Documents1/>}/>
+        <Route path='/documnets2' element={<Documents2/>}/>
+        <Route path='/documnets3' element={<Documents3/>}/>
+        <Route path='/documnets4' element={<Documents4/>}/>
+        <Route path='/video' element={<Video/>}/>
         
 
      
