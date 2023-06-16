@@ -766,13 +766,10 @@ const imagesDeleted5=(amount)=>{
 
 
 
-
-
 export const SaveVideo = (file) => {
   const chunkSize = 5 * 1024 * 1024; // 5MB chunk size (adjust as needed)
   const totalChunks = Math.ceil(file.size / chunkSize);
-
-  return (dispatch) => {
+    return (dispatch) => {
     const uploadChunk = (start, end, chunkIndex) => {
       const chunk = file.slice(start, end);
       const formData = new FormData();
@@ -807,6 +804,7 @@ export const SaveVideo = (file) => {
     uploadChunk(0, chunkSize, 0);
   };
 };
+
 
 export const videoData=()=>{
   return(dispatch)=>{

@@ -89,11 +89,11 @@ const Doctor = () => {
      <div className='text-center'>
       <h5 className='style' >
         <b>
-      Report key: {noteData?.[0]?.schema}
+      Form details
         </b>
         </h5> 
       </div>
-      <form>
+      {/* <form>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Topic</label>
             <input type="text" class="form-control" id="exampleInputEmail1" name='title' value={discription.title} onChange={onchange}/>
@@ -104,7 +104,7 @@ const Doctor = () => {
           </div>
           <button type="button" class="btn col-md-4 offset-md-4 rounded-2 text-white" style={{backgroundColor:"#10847E"}} onClick={clicked}>Submit</button>
           
-      </form>
+      </form> */}
     </div>
 <div className="container d-flex flex-wrap align-items-center p-5 ">
     {noteData?.map((harsh,index)=>{
@@ -115,20 +115,21 @@ const Doctor = () => {
         <div class="card" style={{backgroundColor:"#F1FAFE", width:"350px", height:"200px"}}>
 
             <div class="card-body">
-                <h5 class="card-title">{harsh?.title}</h5>
-                <p class="card-text">{harsh?.discription}</p>
-                <p class="card-text">{harsh?.contactNo}</p>
-                <p class="card-text">{harsh?.email}</p>
-                <p class="card-text">{harsh?.name}</p>
-                <p class="card-text">{harsh?.setectDate}</p>
-                <p class="card-text">{harsh?.selectHour}</p>
-                <p class="card-text">{harsh?.numberofpeople}</p>
+                {/* <h5 class="card-title">"Form</h5> */}
+                <h3 class="card-title">{harsh?.name?harsh?.name:""}</h3>
+                <p class="card-text ">Title : {harsh?.title? harsh?.title:""}</p>
+                <p class="card-text">Discription : {harsh?.discription?harsh?.discription:""}</p>
+                <p class="card-text">Contact Details : {harsh?.contactNo}</p>
+                <p class="card-text">Email : {harsh?.email}</p>
+                <p class="card-text">{harsh?.setectDatec ? harsh?.setectDate:""}</p>
+                <p class="card-text">{harsh?.selectHour ? harsh?.selectHour: ""}</p>
+                <p class="card-text">{harsh?.numberofpeople ? harsh?.numberofpeople:""}</p>
                 {/* <p class="card-text">{harsh?._id}</p> */}
-                <p class="card-text">{harsh?.Date}</p>
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"onClick={()=>edit(index)}>Edit</button>
-                <button class="btn btn-primary" onClick={()=>delet(index)}>delete</button>
+                <p class="card-text">{harsh?.Date?harsh?.Date:""}</p>
+                {/* <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"onClick={()=>edit(index)}>Edit</button>
+                <button class="btn btn-primary" onClick={()=>delet(index)}>delete</button> */}
                 <div className='d-flex justify-content-end'>
-                  {`${today.getDate()}. ${today.getMonth() + 1}. ${today.getFullYear()}.`}
+                  {/* {`${today.getDate()}. ${today.getMonth() + 1}. ${today.getFullYear()}.`} */}
                   </div>
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">

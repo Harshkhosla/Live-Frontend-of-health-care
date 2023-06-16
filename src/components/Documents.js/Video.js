@@ -6,6 +6,7 @@ import { videoData } from '../../harsh reducers/action-creators'
 import { SaveVideo } from '../../harsh reducers/action-creators'
 import { deletVideo } from '../../harsh reducers/action-creators'
 import { useDispatch, useSelector } from "react-redux";
+import ReactPlayer from 'react-player';
 const Video = () => {
     const dispatch = useDispatch();
     const imagesAllData = useSelector(state => state?.amount?.videoData)
@@ -163,18 +164,41 @@ const Video = () => {
                 {/* <br />  */}
                 {mapImages?.map((harsh, index) => (
   <div className="d-flex flex-column m-3">
-  <video
-    width={"300px"}
-    height={"250px"}
-    className="border border-dark"
-    onMouseOver={handleMouseOver}
-    onMouseOut={handleMouseOut}
-    autoPlay={isHovered}
-    controls
-  >
-    <source src={`https://backend-production-e1c2.up.railway.app/${harsh?.video}`} type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+   <ReactPlayer
+      url={`https://backend-production-e1c2.up.railway.app/${harsh?.video}`}
+      width="300px"
+      height="250px"
+      controls
+      config={{
+        file: {
+          attributes: {
+            controlsList: 'nodownload', // Disable download option
+          },
+          tracks: [
+            { kind: 'subtitles', src: 'subs/subtitles.en.vtt', srcLang: 'en', default: true },
+            { kind: 'subtitles', src: 'subs/subtitles.ja.vtt', srcLang: 'ja' },
+            { kind: 'subtitles', src: 'subs/subtitles.de.vtt', srcLang: 'de' },
+          ],
+        },
+        // Additional configuration options for specific file types
+        // Modify as needed for MOV and M4V files
+        // For example, to enable native playback for M4V files, you can add:
+        m4v: {
+          attributes: {
+            controlsList: 'nodownload',
+          },
+        },
+        // For MOV files, you can add:
+        mov: {
+          attributes: {
+            controlsList: 'nodownload',
+          },
+        },
+      }}
+      // playing={isHovered}
+      onMouseOver={handleMouseOver}
+      onMouseOut={handleMouseOut}
+    />
 
   <button className="btn btn-sm btn-danger my-2" type="button" onClick={() => DeletNote(index)}>
     Delete

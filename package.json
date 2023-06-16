@@ -33,6 +33,7 @@
     "react-icons": "^4.4.0",
     "react-native-ico-file-folder": "^3.3.1",
     "react-pdf": "^5.7.2",
+    "react-player": "^2.12.0",
     "react-redux": "^8.0.2",
     "react-scripts": "5.0.1",
     "react-scroll-motion": "^0.3.0",

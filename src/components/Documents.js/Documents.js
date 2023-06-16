@@ -6,10 +6,12 @@ import image2 from '../logout home/img3.gif'
 import { imagesData } from '../../harsh reducers/action-creators'
 import { SaveImage } from '../../harsh reducers/action-creators'
 import { deletImages } from '../../harsh reducers/action-creators'
+import { imagesData2 } from '../../harsh reducers/action-creators'
 import { useDispatch, useSelector } from "react-redux";
 const Documents = () => {
     const dispatch= useDispatch();    
-    const imagesAllData=useSelector(state=>state?.amount?.imagesData)    
+    const imagesAllData=useSelector(state=>state?.amount?.imagesData)  
+    const imagesAllData2=useSelector(state=>state?.amount?.imagesData2)     
     const[mapImages,setMapImages]=useState([]); 
     const [dats, setDats] = useState([]);
     const[img,setImg]=useState('');
@@ -33,7 +35,15 @@ const Documents = () => {
     
     
     
-    
+    useEffect(()=>{
+        
+        const imagesDatacall=async()=>{
+             dispatch(imagesData2())
+        }
+       
+        imagesDatacall()
+        // setUpdated([...updated,dats])
+    },[updated])
     const dataSending=()=>{
         
         
@@ -63,7 +73,7 @@ const Documents = () => {
        
         imagesDatacall()
         // setUpdated([...updated,dats])
-    },[updated])
+    },[])
 
 
 

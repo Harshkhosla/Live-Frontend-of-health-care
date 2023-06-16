@@ -114,12 +114,7 @@ const Documents1 = () => {
                 setDats('casdvdc')
                 let formDataValue = new FormData();
                 formDataValue.append('image',selectedImage)
-                setDataSend(formDataValue)
-                
-
-                  
-                   
-                        
+                setDataSend(formDataValue)                 
                     }}
                 
                 />
