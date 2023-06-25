@@ -16,7 +16,7 @@ import Doctor from './components/doctors/Doctor';
 import Pdf from './components/pdf/Pdf';
 import SignOut from './components/Sign-out/SignOut';
 import Scearch from './components/DoctorHelper/Scearch';
-import HomeLog from './components/logout home/HomeLog';
+// import HomeLog from './components/logout home/HomeLog';
 import { ToastContainer } from 'react-toastify';
 import Report from './components/Report/Report';
 import PdfViewer from './components/DoctorHelper/PdfViewer';
@@ -55,7 +55,7 @@ pauseOnHover
 <ToastContainer />
 
     <Routes>
-    <Route path="/" element={< HomeLog/>}/>
+    {/* <Route path="/" element={< HomeLog/>}/> */}
       <Route path="/home" element={<Documents />}/>
         <Route path="/profile" element={<Profile />} />
         <Route path="/settings" element={<Settings />} />

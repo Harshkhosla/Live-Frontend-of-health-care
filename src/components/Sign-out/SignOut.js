@@ -74,8 +74,7 @@ const SignOut = () => {
           <div className="col-md-8 col-sm-12 offset-md-2 mb-3">
             <h1 className="text-center mb-2 header"> My Account</h1>
             <p className="text-center mb-4 headertext">
-              Manage your user account, including your contact and sign in
-              information.
+             
             </p>
             <form className="form" onSubmit={handleSubmit}>
               <div className="row mb-3">
@@ -89,7 +88,7 @@ const SignOut = () => {
                     id="inputEmail3"
                     // placeholder={details?.data?.[0]?.[0]?.email}
                     // name="email"
-                    value={"Harshkhosla9945@gmail.com"}
+                    value={updatename.email}
                     // // onChange={onChange}
 
 
@@ -116,7 +115,7 @@ const SignOut = () => {
 
 
               </div>
-              <div className="row mb-4 mt-4">
+              {/* <div className="row mb-4 mt-4">
                 <label htmlFor="inputText" className="col-sm-12 col-form-label py-3">
                   Change Your Password
                 </label>
@@ -157,7 +156,7 @@ const SignOut = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               <div className="d-flex justify-content-between align-items-center mb-4 ">
                 <div className="forgotpassword sign-out-btn">
@@ -173,16 +172,16 @@ const SignOut = () => {
                     </small>
                   </span>
                 </div>
-                <div className="submitbtn">
-                  <a to="/">
-                    <button
-                      type="submit"
-                      className="btn btn-primary primarybutton px-5 py-2 btn-sm"
-                    >
-                      Save
-                    </button>
-                  </a>
-                </div>
+                  {/* <div className="submitbtn">
+                    <a to="/">
+                      <button
+                        type="submit"
+                        className="btn btn-primary primarybutton px-5 py-2 btn-sm"
+                      >
+                        Save
+                      </button>
+                    </a>
+                  </div> */}
               </div>
             </form>
           </div>

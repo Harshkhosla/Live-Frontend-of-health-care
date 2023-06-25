@@ -23,20 +23,20 @@ const Navbar = () => {
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        {/* <li class="nav-item">
           <Link  className={`btn m-2 ms-0 ${location.pathname === "/" ? "active" : ""
                   }`} aria-current="page" to="/">Home</Link>
-        </li>
+        </li> */}
         {/* <li class="nav-item">
           <Link class="nav-link" to="/profile">Profile</Link>
         </li>
         <li class="nav-item">
           <Link class="nav-link"to="/settings">Settings</Link>
         </li>         */}
-        <li class="nav-item">
+        {/* <li class="nav-item">
             <Link  className={`btn m-2 ms-0 ${location.pathname === "/documnets" ? "active" : ""
                   }`}to="/documnets">Report</Link>
-          </li> 
+          </li>  */}
           
       </ul>
       <ul class="navbar-nav me-0 mb-2 mb-lg-0">
@@ -68,7 +68,7 @@ const Navbar = () => {
           <li class="nav-item">
           <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+            Upload Images
           </a>
           <ul class="dropdown-menu">
             <li><Link class="dropdown-item" to="/home">Images1</Link></li>
@@ -82,13 +82,13 @@ const Navbar = () => {
             {/* <Link className={`btn m-2 ms-0 ${location.pathname === "/home" ? "active" : ""
                   }`} aria-current="page" to="/home">Prescription</Link> */}
           </li>
-          <li class="nav-item">
+          {/* <li class="nav-item">
             <Link className={`btn m-2 ms-0 ${location.pathname === "/documnets1" ? "active" : ""
                   }`} aria-current="page" to="/documnets1">Prescriptionmm</Link>
-          </li>
+          </li> */}
           <li class="nav-item"> <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+            Upload Videos
           </a>
           <ul class="dropdown-menu">
             <li><Link class="dropdown-item" to="/video">Videos1</Link></li>
@@ -105,26 +105,26 @@ const Navbar = () => {
             {/* <Link className={`btn m-2 ms-0 ${location.pathname === "/video" ? "active" : ""
                   }`} aria-current="page" to="/video">video</Link> */}
           </li>
-          <li class="nav-item">
-            <Link className={`btn m-2 ms-0 ${location.pathname === "/profile" ? "active" : ""
-                  }`} to="/profile">Document</Link>
-          </li>
          
           {/* <li class="nav-item">
             <Link class="nav-link"to="/edits">Remark</Link>
           </li>   */}
           <li class="nav-item">
             <Link className={`btn m-2 ms-0 ${location.pathname === "/edits" ? "active" : ""
-                  }`}to="/edits">Insights</Link>
+                  }`}to="/edits">Form Details</Link>
           </li> 
+          <li class="nav-item">
+            <Link className={`btn m-2 ms-0 ${location.pathname === "/profile" ? "active" : ""
+                  }`} to="/profile">Document</Link>
+          </li>
           <li class="nav-item">
             <Link className={`btn m-2 ms-0 ${location.pathname === "/report" ? "active" : ""
                   }`}to="/report">Report</Link>
           </li> 
-          <li class="nav-item">
+          {/* <li class="nav-item">
             <Link className={`btn m-2 ms-0 ${location.pathname === "/settings" ? "active" : ""
                   }`}to="/settings">Profile</Link>
-          </li>      
+          </li>       */}
             
           {/* <li class="nav-item">
             <Link class="nav-link"to="/documnets">Report</Link>
