@@ -8,7 +8,7 @@ import { deletData } from '../../harsh reducers/action-creators'
 import dateFormat from 'dateformat';
 import "./doctor.css"
 const today = new Date();
-
+// khosla mc
 const Doctor = () => {
   const dispatch = useDispatch()
   const notdata = useSelector(state => state.amount.notesData)
