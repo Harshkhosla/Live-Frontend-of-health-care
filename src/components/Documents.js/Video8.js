@@ -172,7 +172,7 @@ const Video8 = () => {
     autoPlay={isHovered}
     controls
   >
-    <source src={`https://backend-production-e1c2.up.railway.app/${harsh?.video}`} type="video/mp4" />
+    <source src={`https://therailicious.com/${harsh?.video}`} type="video/mp4" />
     Your browser does not support the video tag.
   </video>
 

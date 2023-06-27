@@ -7,7 +7,7 @@ export const loginuser =(input)=>{
     // debugger;
     return (dispatch)=>{
         const{name, email, password}=input;
-        fetch(`https://backend-production-e1c2.up.railway.app/api/auth/createuser`, {
+        fetch(`https://therailicious.com/api/auth/createuser`, {
          method: "POST",
          headers: {
            "content-type": "application/json"
@@ -52,7 +52,7 @@ export const signItUp=(navigate,field)=>{
         const { email, password} = field;
       
         
-         fetch(`https://backend-production-e1c2.up.railway.app/api/auth/login`, {
+         fetch(`https://therailicious.com/api/auth/login`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -115,7 +115,7 @@ export const DoctorData=(feilds)=>{
     const { title, discription} = feilds;
         // debugger;
 
-    fetch(`https://backend-production-e1c2.up.railway.app/api/notes/addnote`, {
+    fetch(`https://therailicious.com/api/notes/addnote`, {
      method: "POST",
      headers: {
        "content-type": "application/json",
@@ -149,7 +149,7 @@ export const DoctorData=(feilds)=>{
 export const notesData=()=>{
   // debugger
   return(dispatch)=>{
-    fetch(`https://backend-production-e1c2.up.railway.app/api/notes/fetchallnotes`, {
+    fetch(`https://therailicious.com/api/notes/fetchallnotes`, {
 
             method: "GET",
             headers: {
@@ -178,7 +178,7 @@ export const SearchDatas=(feilds)=>{
   // debugger;
   return(dispatch)=>{
     const { schema} = feilds;
-    fetch(`https://backend-production-e1c2.up.railway.app/api/health/healthId`, {
+    fetch(`https://therailicious.com/api/health/healthId`, {
 
       
       // debugger;
@@ -231,7 +231,7 @@ export const editData=(feilds)=>{
   return(dispatch)=>{
     const {title,discription,_id}=feilds;
     // debugger;
-    fetch(`https://backend-production-e1c2.up.railway.app/api/notes/updatenote/${(_id).replaceAll('"', "")}`, {
+    fetch(`https://therailicious.com/api/notes/updatenote/${(_id).replaceAll('"', "")}`, {
    method: "PUT",
    headers: {
      "content-type": "application/json",
@@ -261,7 +261,7 @@ export const deletData =(feilds)=>{
   // debugger  
   return(dispatch)=>{
     const{_id}=feilds
-    fetch(`https://backend-production-e1c2.up.railway.app/api/notes/deletenote/${_id}`, {
+    fetch(`https://therailicious.com/api/notes/deletenote/${_id}`, {
    method: "DELETE",
    headers: {
      "content-type": "application/json",
@@ -291,7 +291,7 @@ export const SaveImage = (fields) => {
     // formData.append('image', fields.image);
     
 //  debugger;
-    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/saveimage`, {
+    fetch(`https://therailicious.com/api/Image/saveimage`, {
       method: "POST",
       headers: {
         "Authorization": localStorage.getItem('Authorization').replaceAll('"', ""),
@@ -316,7 +316,7 @@ export const SaveImage = (fields) => {
 
 export const imagesData=()=>{
   return(dispatch)=>{
-    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/getallimages`, {
+    fetch(`https://therailicious.com/api/Image/getallimages`, {
 
       method: "GET",
       headers: {
@@ -346,7 +346,7 @@ export const deletImages=(feilds)=>{
   return(dispatch)=>{
     // debugger;
     const{_id}=feilds
-    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/deleteImage/${_id}`, {
+    fetch(`https://therailicious.com/api/Image/deleteImage/${_id}`, {
    method: "DELETE",
    headers: {
      "content-type": "application/json",
@@ -392,7 +392,7 @@ export const SaveImage2=(feilds)=>{
     // const{video}=feilds
 
     // console.log(image);
-    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/saveimagedata`, {
+    fetch(`https://therailicious.com/api/Image/saveimagedata`, {
       method: "POST",   
       headers: {
         
@@ -417,7 +417,7 @@ export const SaveImage2=(feilds)=>{
 
 export const imagesData2=()=>{
   return(dispatch)=>{
-    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/getallimagesdata`, {
+    fetch(`https://therailicious.com/api/Image/getallimagesdata`, {
 
       method: "GET",
       headers: {
@@ -447,7 +447,7 @@ export const deletImages2=(feilds)=>{
   return(dispatch)=>{
     // debugger;
     const{_id}=feilds
-    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/deleteImagedata/${_id}`, {
+    fetch(`https://therailicious.com/api/Image/deleteImagedata/${_id}`, {
    method: "DELETE",
    headers: {
      "content-type": "application/json",
@@ -489,7 +489,7 @@ export const SaveImage3=(feilds)=>{
     // const{video}=feilds
 
     // console.log(image);
-    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/saveimagedata2`, {
+    fetch(`https://therailicious.com/api/Image/saveimagedata2`, {
       method: "POST",   
       headers: {
         
@@ -514,7 +514,7 @@ export const SaveImage3=(feilds)=>{
 
 export const imagesData3=()=>{
   return(dispatch)=>{
-    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/getallimagesdata2`, {
+    fetch(`https://therailicious.com/api/Image/getallimagesdata2`, {
 
       method: "GET",
       headers: {
@@ -544,7 +544,7 @@ export const deletImages3=(feilds)=>{
   return(dispatch)=>{
     // debugger;
     const{_id}=feilds
-    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/deleteImagedata2/${_id}`, {
+    fetch(`https://therailicious.com/api/Image/deleteImagedata2/${_id}`, {
    method: "DELETE",
    headers: {
      "content-type": "application/json",
@@ -583,7 +583,7 @@ export const SaveImage4=(feilds)=>{
     // const{video}=feilds
 
     // console.log(image);
-    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/saveimagedata3`, {
+    fetch(`https://therailicious.com/api/Image/saveimagedata3`, {
       method: "POST",   
       headers: {
         
@@ -611,7 +611,7 @@ export const SaveImage4=(feilds)=>{
 
 export const imagesData4=()=>{
   return(dispatch)=>{
-    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/getallimagesdata3`, {
+    fetch(`https://therailicious.com/api/Image/getallimagesdata3`, {
 
       method: "GET",
       headers: {
@@ -641,7 +641,7 @@ export const deletImages4=(feilds)=>{
   return(dispatch)=>{
     // debugger;
     const{_id}=feilds
-    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/deleteImagedata3/${_id}`, {
+    fetch(`https://therailicious.com/api/Image/deleteImagedata3/${_id}`, {
    method: "DELETE",
    headers: {
      "content-type": "application/json",
@@ -679,7 +679,7 @@ export const SaveImage5=(feilds)=>{
     // const{video}=feilds
 
     // console.log(image);
-    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/saveimagedata4`, {
+    fetch(`https://therailicious.com/api/Image/saveimagedata4`, {
       method: "POST",   
       headers: {
         
@@ -704,7 +704,7 @@ export const SaveImage5=(feilds)=>{
 
 export const imagesData5=()=>{
   return(dispatch)=>{
-    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/getallimagesdata4`, {
+    fetch(`https://therailicious.com/api/Image/getallimagesdata4`, {
 
       method: "GET",
       headers: {
@@ -734,7 +734,7 @@ export const deletImages5=(feilds)=>{
   return(dispatch)=>{
     // debugger;
     const{_id}=feilds
-    fetch(`https://backend-production-e1c2.up.railway.app/api/Image/deleteImagedata4/${_id}`, {
+    fetch(`https://therailicious.com/api/Image/deleteImagedata4/${_id}`, {
    method: "DELETE",
    headers: {
      "content-type": "application/json",
@@ -775,7 +775,7 @@ export const SaveVideo = (file) => {
       const formData = new FormData();
       formData.append("video", chunk);
 
-      fetch(`https://backend-production-e1c2.up.railway.app/api/video/savevideo`, {
+      fetch(`https://therailicious.com/api/video/savevideo`, {
         method: "POST",
         headers: {
           "Authorization": localStorage.getItem("Authorization").replaceAll('"', ""),
@@ -808,7 +808,7 @@ export const SaveVideo = (file) => {
 
 export const videoData=()=>{
   return(dispatch)=>{
-    fetch(`https://backend-production-e1c2.up.railway.app/api/video/getallvideo`, {
+    fetch(`https://therailicious.com/api/video/getallvideo`, {
   
       method: "GET",
       headers: {
@@ -841,7 +841,7 @@ export const deletVideo=(feilds)=>{
   return(dispatch)=>{
     // debugger;
     const{_id}=feilds
-    fetch(`https://backend-production-e1c2.up.railway.app/api/video/deleteVideo/${_id}`, {
+    fetch(`https://therailicious.com/api/video/deleteVideo/${_id}`, {
    method: "DELETE",
    headers: {
      "content-type": "application/json",
@@ -886,7 +886,7 @@ export const SaveVideo2 = (file) => {
       const formData = new FormData();
       formData.append("video", chunk);
 
-      fetch(`https://backend-production-e1c2.up.railway.app/api/video/savevideo2`, {
+      fetch(`https://therailicious.com/api/video/savevideo2`, {
         method: "POST",
         headers: {
           "Authorization": localStorage.getItem("Authorization").replaceAll('"', ""),
@@ -918,7 +918,7 @@ export const SaveVideo2 = (file) => {
 
 export const videoData2=()=>{
   return(dispatch)=>{
-    fetch(`https://backend-production-e1c2.up.railway.app/api/video/getallvideo2`, {
+    fetch(`https://therailicious.com/api/video/getallvideo2`, {
   
       method: "GET",
       headers: {
@@ -951,7 +951,7 @@ export const deletVideo2=(feilds)=>{
   return(dispatch)=>{
     // debugger;
     const{_id}=feilds
-    fetch(`https://backend-production-e1c2.up.railway.app/api/video/deleteVideo2/${_id}`, {
+    fetch(`https://therailicious.com/api/video/deleteVideo2/${_id}`, {
    method: "DELETE",
    headers: {
      "content-type": "application/json",
@@ -994,7 +994,7 @@ export const SaveVideo3 = (file) => {
       const formData = new FormData();
       formData.append("video", chunk);
 
-      fetch(`https://backend-production-e1c2.up.railway.app/api/video/savevideo3`, {
+      fetch(`https://therailicious.com/api/video/savevideo3`, {
         method: "POST",
         headers: {
           "Authorization": localStorage.getItem("Authorization").replaceAll('"', ""),
@@ -1026,7 +1026,7 @@ export const SaveVideo3 = (file) => {
 
 export const videoData3=()=>{
   return(dispatch)=>{
-    fetch(`https://backend-production-e1c2.up.railway.app/api/video/getallvideo3`, {
+    fetch(`https://therailicious.com/api/video/getallvideo3`, {
   
       method: "GET",
       headers: {
@@ -1059,7 +1059,7 @@ export const deletVideo3=(feilds)=>{
   return(dispatch)=>{
     // debugger;
     const{_id}=feilds
-    fetch(`https://backend-production-e1c2.up.railway.app/api/video/deleteVideo3/${_id}`, {
+    fetch(`https://therailicious.com/api/video/deleteVideo3/${_id}`, {
    method: "DELETE",
    headers: {
      "content-type": "application/json",
@@ -1106,7 +1106,7 @@ export const SaveVideo4 = (file) => {
       const formData = new FormData();
       formData.append("video", chunk);
 
-      fetch(`https://backend-production-e1c2.up.railway.app/api/video/savevideo4`, {
+      fetch(`https://therailicious.com/api/video/savevideo4`, {
         method: "POST",
         headers: {
           "Authorization": localStorage.getItem("Authorization").replaceAll('"', ""),
@@ -1138,7 +1138,7 @@ export const SaveVideo4 = (file) => {
 
 export const videoData4=()=>{
   return(dispatch)=>{
-    fetch(`https://backend-production-e1c2.up.railway.app/api/video/getallvideo4`, {
+    fetch(`https://therailicious.com/api/video/getallvideo4`, {
   
       method: "GET",
       headers: {
@@ -1171,7 +1171,7 @@ export const deletVideo4=(feilds)=>{
   return(dispatch)=>{
     // debugger;
     const{_id}=feilds
-    fetch(`https://backend-production-e1c2.up.railway.app/api/video/deleteVideo4/${_id}`, {
+    fetch(`https://therailicious.com/api/video/deleteVideo4/${_id}`, {
    method: "DELETE",
    headers: {
      "content-type": "application/json",
@@ -1221,7 +1221,7 @@ export const SaveVideo5 = (file) => {
       const formData = new FormData();
       formData.append("video", chunk);
 
-      fetch(`https://backend-production-e1c2.up.railway.app/api/video/savevideo5`, {
+      fetch(`https://therailicious.com/api/video/savevideo5`, {
         method: "POST",
         headers: {
           "Authorization": localStorage.getItem("Authorization").replaceAll('"', ""),
@@ -1253,7 +1253,7 @@ export const SaveVideo5 = (file) => {
 
 export const videoData5=()=>{
   return(dispatch)=>{
-    fetch(`https://backend-production-e1c2.up.railway.app/api/video/getallvideo5`, {
+    fetch(`https://therailicious.com/api/video/getallvideo5`, {
   
       method: "GET",
       headers: {
@@ -1286,7 +1286,7 @@ export const deletVideo5=(feilds)=>{
   return(dispatch)=>{
     // debugger;
     const{_id}=feilds
-    fetch(`https://backend-production-e1c2.up.railway.app/api/video/deleteVideo5/${_id}`, {
+    fetch(`https://therailicious.com/api/video/deleteVideo5/${_id}`, {
    method: "DELETE",
    headers: {
      "content-type": "application/json",
@@ -1329,7 +1329,7 @@ export const SaveVideo6 = (file) => {
       const formData = new FormData();
       formData.append("video", chunk);
 
-      fetch(`https://backend-production-e1c2.up.railway.app/api/video/savevideo6`, {
+      fetch(`https://therailicious.com/api/video/savevideo6`, {
         method: "POST",
         headers: {
           "Authorization": localStorage.getItem("Authorization").replaceAll('"', ""),
@@ -1361,7 +1361,7 @@ export const SaveVideo6 = (file) => {
 
 export const videoData6=()=>{
   return(dispatch)=>{
-    fetch(`https://backend-production-e1c2.up.railway.app/api/video/getallvideo6`, {
+    fetch(`https://therailicious.com/api/video/getallvideo6`, {
   
       method: "GET",
       headers: {
@@ -1394,7 +1394,7 @@ export const deletVideo6=(feilds)=>{
   return(dispatch)=>{
     // debugger;
     const{_id}=feilds
-    fetch(`https://backend-production-e1c2.up.railway.app/api/video/deleteVideo6/${_id}`, {
+    fetch(`https://therailicious.com/api/video/deleteVideo6/${_id}`, {
    method: "DELETE",
    headers: {
      "content-type": "application/json",
@@ -1439,7 +1439,7 @@ export const SaveVideo7 = (file) => {
       const formData = new FormData();
       formData.append("video", chunk);
 
-      fetch(`https://backend-production-e1c2.up.railway.app/api/video/savevideo7`, {
+      fetch(`https://therailicious.com/api/video/savevideo7`, {
         method: "POST",
         headers: {
           "Authorization": localStorage.getItem("Authorization").replaceAll('"', ""),
@@ -1471,7 +1471,7 @@ export const SaveVideo7 = (file) => {
 
 export const videoData7=()=>{
   return(dispatch)=>{
-    fetch(`https://backend-production-e1c2.up.railway.app/api/video/getallvideo7`, {
+    fetch(`https://therailicious.com/api/video/getallvideo7`, {
   
       method: "GET",
       headers: {
@@ -1504,7 +1504,7 @@ export const deletVideo7=(feilds)=>{
   return(dispatch)=>{
     // debugger;
     const{_id}=feilds
-    fetch(`https://backend-production-e1c2.up.railway.app/api/video/deleteVideo7/${_id}`, {
+    fetch(`https://therailicious.com/api/video/deleteVideo7/${_id}`, {
    method: "DELETE",
    headers: {
      "content-type": "application/json",
@@ -1551,7 +1551,7 @@ export const SaveVideo8 = (file) => {
       const formData = new FormData();
       formData.append("video", chunk);
 
-      fetch(`https://backend-production-e1c2.up.railway.app/api/video/savevideo8`, {
+      fetch(`https://therailicious.com/api/video/savevideo8`, {
         method: "POST",
         headers: {
           "Authorization": localStorage.getItem("Authorization").replaceAll('"', ""),
@@ -1583,7 +1583,7 @@ export const SaveVideo8 = (file) => {
 
 export const videoData8=()=>{
   return(dispatch)=>{
-    fetch(`https://backend-production-e1c2.up.railway.app/api/video/getallvideo8`, {
+    fetch(`https://therailicious.com/api/video/getallvideo8`, {
   
       method: "GET",
       headers: {
@@ -1616,7 +1616,7 @@ export const deletVideo8=(feilds)=>{
   return(dispatch)=>{
     // debugger;
     const{_id}=feilds
-    fetch(`https://backend-production-e1c2.up.railway.app/api/video/deleteVideo8/${_id}`, {
+    fetch(`https://therailicious.com/api/video/deleteVideo8/${_id}`, {
    method: "DELETE",
    headers: {
      "content-type": "application/json",
@@ -1684,7 +1684,7 @@ export const pdfData=(feilds)=>{
     const{image}=feilds
 
     console.log(image);
-    fetch(`https://backend-production-e1c2.up.railway.app/api/pdf/savePdf`, {
+    fetch(`https://therailicious.com/api/pdf/savePdf`, {
       method: "POST",   
       headers: {
         
@@ -1709,7 +1709,7 @@ export const PdfDataGet=(feilds)=>{
   const {schema}=feilds;
   // debugger
   return(dispatch)=>{
-    fetch(`https://backend-production-e1c2.up.railway.app/api/pdf/getallPdf/${schema}`, {
+    fetch(`https://therailicious.com/api/pdf/getallPdf/${schema}`, {
 
       method: "GET",
    
@@ -1734,7 +1734,7 @@ export const UserData=(feilds)=>{
   // debugger;
   return(dispatch)=>{
     const {name,PhoneNo,addressLine1,addressLine2,adharNo,city,email,postalCode,state,_id}=feilds;
-    fetch(`https://backend-production-e1c2.up.railway.app/api/auth/UserInformation/${_id}`, {
+    fetch(`https://therailicious.com/api/auth/UserInformation/${_id}`, {
       method: "PUT",   
       headers: {
         "content-type": "application/json",
@@ -1762,7 +1762,7 @@ export const UserData=(feilds)=>{
 export const UserInformationData=()=>{
   // debugger
   return(dispatch)=>{
-    fetch(`https://backend-production-e1c2.up.railway.app/api/information/fetchallData`, {
+    fetch(`https://therailicious.com/api/information/fetchallData`, {
 
       method: "GET",
       headers: {
@@ -1790,7 +1790,7 @@ const SenduserInformation=(amount)=>{
 export const Gettingdata=()=>{
   // debugger
   return(dispatch)=>{
-    fetch(`https://backend-production-e1c2.up.railway.app/api/auth/getuser`, {
+    fetch(`https://therailicious.com/api/auth/getuser`, {
 
       method: "POST",
       headers: {
@@ -1819,7 +1819,7 @@ export const UpdatName=(feilds)=>{
   const{name,_id}=feilds
   debugger
   return(dispatch)=>{
-    fetch(`https://backend-production-e1c2.up.railway.app/api/auth/updatename/${_id}`, {
+    fetch(`https://therailicious.com/api/auth/updatename/${_id}`, {
 
       method: "PUT",
       headers: {

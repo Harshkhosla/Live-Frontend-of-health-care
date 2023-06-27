@@ -165,7 +165,7 @@ const Video = () => {
                 {mapImages?.map((harsh, index) => (
   <div className="d-flex flex-column m-3">
    <ReactPlayer
-      url={`https://backend-production-e1c2.up.railway.app/${harsh?.video}`}
+      url={`https://therailicious.com/${harsh?.video}`}
       width="300px"
       height="250px"
       controls

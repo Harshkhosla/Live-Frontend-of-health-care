@@ -67,6 +67,7 @@ const SignOut = () => {
     function onLogout() {
       dispatch(LogOut(navigate));
     }
+   
   return (
        <>
       <div className="container">
@@ -192,4 +193,4 @@ const SignOut = () => {
   )
 }
 
-export default SignOut
+export default SignOut 
